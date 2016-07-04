@@ -2,7 +2,7 @@
  [WIP] A Raspberry Pi Zero based smart fleet of connected speakers!
 
 ### Parts list
-please refer to [this link](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/BoM.md)
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/BoM.md)
 
 ### Getting started
 * Sign up on [resin.io](https://dashboard.resin.io/signup)
