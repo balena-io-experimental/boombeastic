@@ -1,0 +1,46 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-node:slim
+
+## uncomment if you want systemd
+ENV INITSYSTEM on
+
+# Install wget and curl
+RUN apt-get clean && apt-get update && apt-get install -y \
+  wget \
+  curl
+
+# Add Mopidy sources
+RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
+
+# WTF is going on with httpredir from debian? removing it thee dirty way
+RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list
+
+# Install apt deps
+RUN apt-get clean && apt-get update && apt-get install -y \
+  apt-utils \
+  build-essential \
+  python-dev \
+  python-pip \
+  python-smbus \
+  python-imaging \
+  git && rm -rf /var/lib/apt/lists/*
+
+# Set npm
+RUN npm config set unsafe-perm true
+
+# Update setup-tools
+RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+
+# Move package to filesystem
+COPY ./package.json ./app/
+
+# NPM i app
+RUN npm i  --prefix /app
+
+# Move app to filesystem
+COPY . ./app
+
+# Configure for DAC
+COPY ./Dockerbin/asound.conf /etc/asound.conf
+
+# Start app
+CMD ["bash", "/app/start.sh"]
