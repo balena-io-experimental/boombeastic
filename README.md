@@ -13,6 +13,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 * add the *resin remote* to your local workspace using the useful shortcut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
 * `git push resin master`
 * see the magic happening, your device is getting updated Over-The-Air!
+
 ### Pictures
 ![v1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160630_210905.jpg)
 
