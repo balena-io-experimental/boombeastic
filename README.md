@@ -10,7 +10,7 @@ please refer to [this link](https://raw.githubusercontent.com/resin-io-playgroun
 * clone this repository to your local workspace
 * set these environment variables in the `Fleet Configuration` application side tab
   * `RESIN_HOST_CONFIG_dtoverlay` = `hifiberry-dac`
-* add the *resin remote* to your local workspace using the useful shortvut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
+* add the *resin remote* to your local workspace using the useful shortcut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
 * `git push resin master`
 * see the magic happening, your device is getting updated Over-The-Air!
 ### Pictures
