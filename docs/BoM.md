@@ -10,5 +10,7 @@ Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Founda
 Pibow extender bolt pack | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | 2
 USB to microUSB OTG Converter Shim | Pimoroni |  [Adafruit](https://www.adafruit.com/products/2910) / [Pimoroni](https://shop.pimoroni.com/products/usb-to-microusb-otg-converter-shim) | 1
 Official Raspberry Pi WiFi dongle | Raspberry Foundation |  [Adafruit](https://www.adafruit.com/products/2638) / [Pimoroni](https://shop.pimoroni.com/products/official-raspberry-pi-wifi-dongle) | 1
-M2x10 Nylon screw | not found yet | not found yet | 8
-M2 Nylon nut | not found yet | not found yet | 12
+M2.5x12 Nylon screw | not found yet | not found yet | 6
+M2.5 Nylon nut | not found yet | not found yet | 12
+M2x10 Nylon screw | not found yet | not found yet | 4
+M2 Nylon nut | not found yet | not found yet | 4
