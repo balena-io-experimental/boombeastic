@@ -11,6 +11,7 @@
   const supervisor = process.env.RESIN_SUPERVISOR_ADDRESS;
 
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
+  console.log(chalk.cyan('configuring Mopidy from env vars...'));
   // Google Play Music
   mopidy.gmusic.enabled = precess.env.MOPIDY_GMUSIC_ENABLED || "false";
   mopidy.gmusic.username = precess.env.MOPIDY_GMUSIC_USERNAME || "none";
@@ -22,7 +23,15 @@
   mopidy.spotify.password = precess.env.MOPIDY_SPOTIFY_PASSWORD || "none";
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
-  exec('systemctl start mopidy');
+  console.log(chalk.cyan('starting Mopidy...'));
+  exec('systemctl start mopidy', (error, stdout, stderr) => {
+    if (error) {
+      console.log(chalk.red(`exec error: ${error}`));
+      return;
+    }
+    console.log(chalk.green(`stdout: ${stdout}`));
+    console.log(chalk.red(`stderr: ${stderr}`));
+  });
   // TBD: control LED Matrix
 
   setInterval(function functionName() {
