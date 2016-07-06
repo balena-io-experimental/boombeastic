@@ -42,8 +42,8 @@
   });
   // TBD: control LED Matrix
 
-  setInterval(function functionName() {
-    console.log("keepalive");
+  setInterval(function keepalive() {
+
   },60000);
 
 })();
