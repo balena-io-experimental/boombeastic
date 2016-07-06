@@ -11,14 +11,14 @@
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
   console.log(chalk.cyan('configuring Mopidy from env vars...'));
   // Google Play Music
-  mopidy.gmusic.enabled = precess.env.MOPIDY_GMUSIC_ENABLED || "false";
-  mopidy.gmusic.username = precess.env.MOPIDY_GMUSIC_USERNAME || "none";
-  mopidy.gmusic.password = precess.env.MOPIDY_GMUSIC_PASSWORD || "none";
-  mopidy.gmusic.all_access = precess.env.MOPIDY_GMUSIC_ALL_ACCESS || "false";
+  mopidy.gmusic.enabled = process.env.MOPIDY_GMUSIC_ENABLED || "false";
+  mopidy.gmusic.username = process.env.MOPIDY_GMUSIC_USERNAME || "none";
+  mopidy.gmusic.password = process.env.MOPIDY_GMUSIC_PASSWORD || "none";
+  mopidy.gmusic.all_access = process.env.MOPIDY_GMUSIC_ALL_ACCESS || "false";
   // Spotify
-  mopidy.spotify.enabled = precess.env.MOPIDY_SPOTIFY_ENABLED || "false";
-  mopidy.spotify.username = precess.env.MOPIDY_SPOTIFY_USERNAME || "none";
-  mopidy.spotify.password = precess.env.MOPIDY_SPOTIFY_PASSWORD || "none";
+  mopidy.spotify.enabled = process.env.MOPIDY_SPOTIFY_ENABLED || "false";
+  mopidy.spotify.username = process.env.MOPIDY_SPOTIFY_USERNAME || "none";
+  mopidy.spotify.password = process.env.MOPIDY_SPOTIFY_PASSWORD || "none";
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
   console.log(chalk.cyan('starting Mopidy...'));
