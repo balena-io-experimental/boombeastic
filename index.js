@@ -7,8 +7,6 @@
   const exec = require('child_process').exec;
   const chalk ) require("chalk");
   const request = require('request');
-  const isOnline = require('is-online');
-  const supervisor = process.env.RESIN_SUPERVISOR_ADDRESS;
 
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
   console.log(chalk.cyan('configuring Mopidy from env vars...'));
