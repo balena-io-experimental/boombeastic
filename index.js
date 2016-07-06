@@ -31,7 +31,7 @@
   mopidy.spotify.password = process.env.MOPIDY_SPOTIFY_PASSWORD || "none";
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
-  console.log(chalk.cyan('starting Mopidy...'));
+  console.log(chalk.cyan('starting Mopidy - htttp port:'+process.env.MOPIDY_HTTP_PORT || 8080+'; MPD port:'+process.env.MOPIDY_MPD_PORT || 6680));
   exec('systemctl start mopidy', (error, stdout, stderr) => {
     if (error) {
       console.log(chalk.red(`exec error: ${error}`));
