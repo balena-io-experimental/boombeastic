@@ -33,7 +33,7 @@ RUN npm config set unsafe-perm true
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # Install Mopidy extensions
-RUN pip install mopidy-gmusic mopidy-musicbox-webclient Mopidy-Mopify
+RUN pip install mopidy-gmusic mopidy-musicbox-webclient
 
 # Move package to filesystem
 COPY ./package.json ./app/
