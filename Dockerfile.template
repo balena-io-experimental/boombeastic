@@ -11,7 +11,7 @@ RUN apt-get clean && apt-get update && apt-get install -y \
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
 
-# WTF is going on with httpredir from debian? removing it thee dirty way
+# WTF is going on with httpredir from debian? removing it the dirty way
 RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list
 
 # Install apt deps
@@ -24,11 +24,7 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   python-imaging \
   git \
   mopidy \
-  mopidy-spotify \
-  gcc-4.8 \
-  g++-4.8 && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6 \
-  && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8 \
-  && update-alternatives --config gcc %% rm -rf /var/lib/apt/lists/*
+  mopidy-spotify && rm -rf /var/lib/apt/lists/*
 
 # Set npm
 RUN npm config set unsafe-perm true
