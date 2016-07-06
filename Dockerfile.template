@@ -26,6 +26,8 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   python-imaging \
   git \
   mopidy \
+  alsa-base \
+  alsa-utils \
   gstreamer1.0-alsa \
   mopidy-spotify && rm -rf /var/lib/apt/lists/*
 
