@@ -5,7 +5,7 @@
   const fs = require('fs');
   const ini = require('ini');
   const exec = require('child_process').exec;
-  const chalk ) require("chalk");
+  const chalk = require("chalk");
   const request = require('request');
 
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
