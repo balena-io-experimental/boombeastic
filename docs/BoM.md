@@ -7,10 +7,7 @@ Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit |
 Raspberry Pi Zero (only, no kit / adapters bundle required) | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/2885) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero) | 1
 Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) | 1
 3" Speaker 4Ω (3W) | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/3-speaker-4-3w) | 1
-Pibow extender bolt pack | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | 2
 USB to microUSB OTG Converter Shim | Pimoroni |  [Adafruit](https://www.adafruit.com/products/2910) / [Pimoroni](https://shop.pimoroni.com/products/usb-to-microusb-otg-converter-shim) | 1
 Official Raspberry Pi WiFi dongle | Raspberry Foundation |  [Adafruit](https://www.adafruit.com/products/2638) / [Pimoroni](https://shop.pimoroni.com/products/official-raspberry-pi-wifi-dongle) | 1
-M2.5x12 Nylon screw | not found yet | not found yet | 6
-M2.5 Nylon nut | not found yet | not found yet | 12
-M2x10 Nylon screw | not found yet | not found yet | 4
-M2 Nylon nut | not found yet | not found yet | 4
+Pibow extender bolt pack | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | 2
+M2.5 / M2 screws and nuts pack (overkill, but the easiest and cheapest way right now) | Amazon | [co.uk](https://www.amazon.co.uk/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B01DJYXSHU/ref=sr_1_1?ie=UTF8&qid=1467796678&sr=8-1&keywords=M2+M3+nylon) / [com](https://www.amazon.com/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B00MMWDYI4/ref=sr_1_8?ie=UTF8&qid=1467796552&sr=8-8&keywords=M2+nylon+nut&refinements=p_85%3A2470955011) / [it](https://www.amazon.it/esagonali-distanziali-Kit-accessori-assortiti-plastica/dp/B01DJYXSHU/ref=sr_1_3?ie=UTF8&qid=1467796951&sr=8-3&keywords=M2+M3+nylon) | 1
