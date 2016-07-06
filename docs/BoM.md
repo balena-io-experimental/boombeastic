@@ -1,7 +1,7 @@
 # Parts list
 Name | Manufacturer/Publisher | Link | Qty
 ------------ | ------------- | ------------ | -------------
-Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Blonde Bamboo from Ponoko or ](http://www.ponoko.com/make-and-sell/show-material/567-bamboo-blonde-3-ply#main-image) ) | Resin.io | [GitHub](https://github.com/resin-io-playground/boombeastic/raw/master/designs/boomBeastic_mini.eps) | 1
+Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Blonde Bamboo from Ponoko ](http://www.ponoko.com/make-and-sell/show-material/567-bamboo-blonde-3-ply#main-image) ) | Resin.io | [GitHub](https://github.com/resin-io-playground/boombeastic/raw/master/designs/boomBeastic_mini.eps) | 1
 Adafruit MAX98357 I2S Class-D Mono Amp | Adafruit | [Adafruit](https://www.adafruit.com/product/3006) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-class-d-amplifier-breakout-max98357a) | 1
 Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
 Raspberry Pi Zero (only, no kit / adapters bundle required) | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/2885) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero) | 1
