@@ -29,7 +29,9 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   alsa-base \
   alsa-utils \
   gstreamer1.0-alsa \
-  mopidy-spotify && rm -rf /var/lib/apt/lists/*
+  gstreamer1.0-plugins-bad \
+  mopidy-spotify \
+  mopidy-soundcloud && rm -rf /var/lib/apt/lists/*
 
 # Set npm
 RUN npm config set unsafe-perm true
@@ -38,7 +40,7 @@ RUN npm config set unsafe-perm true
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # Install Mopidy extensions
-RUN pip install mopidy-gmusic mopidy-musicbox-webclient
+RUN pip install mopidy-gmusic Mopidy-YouTube Mopidy-Spotmop mopidy-musicbox-webclient
 
 # Move package to filesystem
 COPY ./package.json ./app/

@@ -29,6 +29,11 @@
   mopidy.spotify.enabled = process.env.MOPIDY_SPOTIFY_ENABLED || "false";
   mopidy.spotify.username = process.env.MOPIDY_SPOTIFY_USERNAME || "none";
   mopidy.spotify.password = process.env.MOPIDY_SPOTIFY_PASSWORD || "none";
+  // Soundcloud config
+  mopidy.soundcloud.enabled = process.env.MOPIDY_SOUNDCLOUD_ENABLED || "false";
+  mopidy.soundcloud.auth_token = process.env.MOPIDY_SOUNDCLOUD_AUTH_TOKEN || "none";
+  // Soundcloud config
+  mopidy.youtube.enabled = process.env.MOPIDY_YOUTUBE_ENABLED || "false";
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
   console.log(chalk.cyan('starting Mopidy - htttp port:'+process.env.MOPIDY_HTTP_PORT || 8080+'; MPD port:'+process.env.MOPIDY_MPD_PORT || 6680));
