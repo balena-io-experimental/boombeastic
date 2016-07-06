@@ -7,15 +7,18 @@
   const exec = require('child_process').exec;
   const chalk = require("chalk");
   const request = require('request');
+  const myIP = require('my-ip');
 
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
   console.log(chalk.cyan('configuring Mopidy from env vars...'));
 
   // http config
   mopidy.http.port = process.env.MOPIDY_HTTP_PORT || "8080";
+  mopidy.http.hostname = myIP();
 
   // mpd config
   mopidy.mpd.port = process.env.MOPIDY_MPD_PORT || "6680";
+  mopidy.mpd.hostname = myIP();
 
   // audio config
   mopidy.audio.mixer_volume = process.env.MOPIDY_AUDIO_MIXER_VOLUME || "50";
