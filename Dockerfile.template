@@ -22,13 +22,22 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   python-pip \
   python-smbus \
   python-imaging \
-  git && rm -rf /var/lib/apt/lists/*
+  git \
+  mopidy \
+  mopidy-spotify \
+  gcc-4.8 \
+  g++-4.8 && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6 \
+  && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8 \
+  && update-alternatives --config gcc %% rm -rf /var/lib/apt/lists/*
 
 # Set npm
 RUN npm config set unsafe-perm true
 
 # Update setup-tools
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+
+# Install Mopidy extensions
+RUN pip install mopidy-gmusic mopidy-musicbox-webclient Mopidy-Mopify
 
 # Move package to filesystem
 COPY ./package.json ./app/
@@ -39,8 +48,14 @@ RUN npm i  --prefix /app
 # Move app to filesystem
 COPY . ./app
 
+# Configure Mopidy
+COPY ./Dockerbin/mopidy.conf /etc/mopidy/mopidy.conf
+
 # Configure for DAC
 COPY ./Dockerbin/asound.conf /etc/asound.conf
+
+# Uncomment to start Mopidy service on boot
+# RUN systemctl enable mopidy
 
 # Start app
 CMD ["bash", "/app/start.sh"]
