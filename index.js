@@ -10,12 +10,22 @@
 
   let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
   console.log(chalk.cyan('configuring Mopidy from env vars...'));
-  // Google Play Music
+
+  // http config
+  mopidy.http.port = process.env.MOPIDY_HTTP_PORT || "8080";
+
+  // mpd config
+  mopidy.mpd.port = process.env.MOPIDY_MPD_PORT || "6680";
+
+  // audio config
+  mopidy.audio.mixer_volume = process.env.MOPIDY_AUDIO_MIXER_VOLUME || "50";
+
+  // Google Play Music config
   mopidy.gmusic.enabled = process.env.MOPIDY_GMUSIC_ENABLED || "false";
   mopidy.gmusic.username = process.env.MOPIDY_GMUSIC_USERNAME || "none";
   mopidy.gmusic.password = process.env.MOPIDY_GMUSIC_PASSWORD || "none";
   mopidy.gmusic.all_access = process.env.MOPIDY_GMUSIC_ALL_ACCESS || "false";
-  // Spotify
+  // Spotify config
   mopidy.spotify.enabled = process.env.MOPIDY_SPOTIFY_ENABLED || "false";
   mopidy.spotify.username = process.env.MOPIDY_SPOTIFY_USERNAME || "none";
   mopidy.spotify.password = process.env.MOPIDY_SPOTIFY_PASSWORD || "none";
