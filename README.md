@@ -15,7 +15,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 * see the magic happening, your device is getting updated Over-The-Air!
 
 ### Pictures
-![v1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160630_210905.jpg)
+![v1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160712_005947.jpg)
 
 ## License
 
