@@ -1,49 +1,50 @@
 {
-    "name": "boombeastic",
-    "version": "0.0.1",
-    "description": "A Raspberry Pi Zero based smart fleet of connected speakers!",
-    "main": "index.js",
-    "directories": {
-        "doc": "docs"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/resin-io-playground/boombeastic.git"
-    },
-    "keywords": [
-        "resin",
-        "io",
-        "boom",
-        "bastic",
-        "beastic",
-        "beast",
-        "box",
-        "speaker",
-        "audio",
-        "sound",
-        "dac",
-        "rpi",
-        "raspberry",
-        "zero",
-        "led",
-        "matrix",
-        "sync",
-        "multi",
-        "room"
-    ],
-    "author": "Carlo Maria Curinga <carlo@resin.io>",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/resin-io-playground/boombeastic/issues"
-    },
-    "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
-    "dependencies": {
-        "chalk": "^1.1.3",
-        "i2c": "^0.2.3",
-        "ini": "^1.3.4",
-        "request": "^2.72.0"
-    }
+  "name": "boombeastic",
+  "version": "0.0.1",
+  "description": "A Raspberry Pi Zero based smart fleet of connected speakers!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-playground/boombeastic.git"
+  },
+  "keywords": [
+    "resin",
+    "io",
+    "boom",
+    "bastic",
+    "beastic",
+    "beast",
+    "box",
+    "speaker",
+    "audio",
+    "sound",
+    "dac",
+    "rpi",
+    "raspberry",
+    "zero",
+    "led",
+    "matrix",
+    "sync",
+    "multi",
+    "room"
+  ],
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/boombeastic/issues"
+  },
+  "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
+  "dependencies": {
+    "backpack-ht16k33": "^0.2.1",
+    "chalk": "^1.1.3",
+    "i2c": "^0.2.3",
+    "ini": "^1.3.4",
+    "request": "^2.72.0"
+  }
 }

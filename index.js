@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    const i2c = require("i2c");
+    const backpack = require('backpack-ht16k33');
     const fs = require('fs');
     const ini = require('ini');
     const exec = require('child_process').exec;
@@ -45,7 +45,25 @@
         console.log(chalk.green(`stdout: ${stdout}`));
         console.log(chalk.red(`stderr: ${stderr}`));
     });
-    // TBD: control LED Matrix
+
+    backpack.on('ready', function() {
+        backpack.clear();
+        var bitmap = [
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+        ];
+        backpack.writeBitmap(bitmap);
+    });
+
+    backpack.on( 'error', function(err) {
+      console.log(chalk.red(`Display error: ${err}`));
+    });
 
     setInterval(function keepalive() {
 
