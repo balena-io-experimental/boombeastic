@@ -4,10 +4,9 @@
 rmmod snd_bcm2835
 
 # Enable i2c and other interfaces
-modprobe i2c-dev || true
-modprobe i2c-bcm2708 || true
-modprobe snd-soc-pcm512x || true
-modprobe snd-soc-wm8804 || true
+modprobe i2c-bcm2708 > /dev/null 2>&1 || true
+modprobe snd-soc-pcm512x > /dev/null 2>&1 || true
+modprobe snd-soc-wm8804 > /dev/null 2>&1 || true
 
 # Ensure mopidy folders are there
 mkdir /data/mopidy > /dev/null 2>&1 || true
