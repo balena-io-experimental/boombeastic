@@ -46,7 +46,7 @@
         console.log(chalk.red(`stderr: ${stderr}`));
     });
 
-    let bitmap = [
+    let matrix = [
         [1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0, 0, 0, 1],
         [1, 0, 1, 1, 1, 1, 0, 1],
