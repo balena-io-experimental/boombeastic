@@ -25,7 +25,15 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 
 ## Pictures
 
-![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_005947.jpg) ![v1_mono](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160711_222357.jpg)
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_005947.jpg)
+
+---
+
+![v1_mono](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160711_222357.jpg)
+
+---
+
+![v1_battery](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_150552.jpg)
 
 ## License
 
