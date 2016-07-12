@@ -15,8 +15,8 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 * see the magic happening, your device is getting updated Over-The-Air!
 
 ### Pictures
-![v1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160712_005947.jpg)
-
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160712_005947.jpg)
+![v1_mono](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/20160711_222357.jpg)
 ## License
 
 Copyright 2016 Rulemotion Ltd.
