@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
   "dependencies": {
-    "backpack-ht16k33": "^0.2.1",
     "chalk": "^1.1.3",
     "i2c": "^0.2.3",
     "ini": "^1.3.4",
+    "ledpanel": "^1.0.4",
     "request": "^2.72.0"
   }
 }

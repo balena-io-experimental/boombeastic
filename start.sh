@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Remove default audio
-rmmod snd_bcm2835
+rmmod snd_bcm2835 > /dev/null 2>&1 || true
 
 # Enable i2c and other interfaces
 modprobe i2c-bcm2708 > /dev/null 2>&1 || true

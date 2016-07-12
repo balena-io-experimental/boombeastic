@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    const backpack = require('backpack-ht16k33');
+    const ledpanel = require('ledpanel');
     const fs = require('fs');
     const ini = require('ini');
     const exec = require('child_process').exec;
@@ -46,24 +46,24 @@
         console.log(chalk.red(`stderr: ${stderr}`));
     });
 
-    backpack.on('ready', function() {
-        backpack.clear();
-        var bitmap = [
-            [1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 0, 1],
-            [1, 0, 1, 0, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 0, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1],
-        ];
-        backpack.writeBitmap(bitmap);
-    });
-
-    backpack.on( 'error', function(err) {
-      console.log(chalk.red(`Display error: ${err}`));
-    });
+    let bitmap = [
+        [1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1],
+    ];
+    ledpanel.clear();
+    ledpanel.matrix(matrix, function(err) {
+        if (err) {
+            console.log(chalk.red(`ledmatrix error: ${err}`));
+        } else {
+            console.log(chalk.green('ledmatrix smile printed'));
+        }
+    })
 
     setInterval(function keepalive() {
 
