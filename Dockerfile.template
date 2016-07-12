@@ -18,6 +18,7 @@ RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/dem
 RUN apt-get clean && apt-get update && apt-get install -y \
   apt-utils \
   build-essential \
+  libasound2-dev \
   libffi-dev \
   libssl-dev \
   python-dev \
