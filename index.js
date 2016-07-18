@@ -1,6 +1,7 @@
 (function() {
     'use strict';
 
+    const ledpanel = require('ledpanel');
     const fs = require('fs');
     const ini = require('ini');
     const exec = require('child_process').exec;
@@ -44,6 +45,25 @@
         console.log(chalk.green(`stdout: ${stdout}`));
         console.log(chalk.red(`stderr: ${stderr}`));
     });
+
+    let matrix = [
+        [1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1],
+    ];
+    ledpanel.clear();
+    ledpanel.matrix(matrix, function(err) {
+        if (err) {
+            console.log(chalk.red(`ledmatrix error: ${err}`));
+        } else {
+            console.log(chalk.green('ledmatrix smile printed'));
+        }
+    })
 
     setInterval(function keepalive() {
 
