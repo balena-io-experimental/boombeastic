@@ -43,7 +43,6 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "ini": "^1.3.4",
-    "ledpanel": "^1.0.4",
     "request": "^2.72.0"
   }
 }
