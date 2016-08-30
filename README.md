@@ -1,6 +1,6 @@
 # BoomBeastic mini
 
-[WIP] A Raspberry Pi Zero based smart fleet of connected speakers!
+A Raspberry Pi Zero based smart connected speaker!
 
 ## Parts list
 
