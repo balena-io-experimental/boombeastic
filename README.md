@@ -1,6 +1,6 @@
 # BoomBeastic mini
 
-A Raspberry Pi Zero based smart connected speaker!
+A Raspberry Pi Zero based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
 
 ## Parts list
 
