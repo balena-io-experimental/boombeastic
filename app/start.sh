@@ -13,5 +13,5 @@ mkdir /data/mopidy/media  >/dev/null 2>&1 || true
 mkdir /data/mopidy/playlists  >/dev/null 2>&1 || true
 
 while true; do
-    node /app/index.js
+    node /usr/src/app/index.js
 done
