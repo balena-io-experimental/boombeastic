@@ -43,23 +43,32 @@ RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 # Install Mopidy extensions
 RUN pip install mopidy-gmusic Mopidy-YouTube Mopidy-Spotmop mopidy-musicbox-webclient
 
-# Move package to filesystem
-COPY ./package.json ./app/
+# Save source folder
+RUN printf "%s\n" "${PWD##}" > SOURCEFOLDER
 
-# NPM i app
-RUN npm i  --prefix /app
-
-# Move app to filesystem
-COPY . ./app
+# Move to app dir
+WORKDIR /usr/src/app
 
 # Configure Mopidy
-COPY ./Dockerbin/mopidy.conf /etc/mopidy/mopidy.conf
+COPY "$SOURCEFOLDER/Dockerbin/mopidy.conf" /etc/mopidy/mopidy.conf
 
-# Configure for DAC
-COPY ./Dockerbin/asound.conf /etc/asound.conf
+# Configure DAC
+COPY "$SOURCEFOLDER/Dockerbin/asound.conf" /etc/asound.conf
 
-# Uncomment to start Mopidy service on boot
-# RUN systemctl enable mopidy
+# Move package.json to filesystem
+COPY "$SOURCEFOLDER/app/package.json" ./
+
+# NPM i app
+RUN JOBS=MAX npm i --production
+
+# Move app to filesystem
+COPY "$SOURCEFOLDER/app" ./
+
+# Move to /
+WORKDIR /
+
+## uncomment if you want systemd
+ENV INITSYSTEM on
 
 # Start app
-CMD ["bash", "/app/start.sh"]
+CMD ["bash", "/usr/src/app/start.sh"]
