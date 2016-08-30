@@ -25,7 +25,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 
 ## Configure via [environment variables](https://docs.resin.io/management/env-vars/)
 Variable Name | Default | Description
------------- | -------------
+------------ | ------------- | -------------
 MOPIDY_HTTP_PORT | `8080` | the port on which expose the web UI
 MOPIDY_MPD_PORT | `6680` | the port on which expose the MPD service
 MOPIDY_AUDIO_MIXER_VOLUME | `50` | the default volume
