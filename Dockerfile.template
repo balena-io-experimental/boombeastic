@@ -64,9 +64,6 @@ RUN JOBS=MAX npm i --production
 # Move app to filesystem
 COPY "$SOURCEFOLDER/app" ./
 
-# Move to /
-WORKDIR /
-
 ## uncomment if you want systemd
 ENV INITSYSTEM on
 
