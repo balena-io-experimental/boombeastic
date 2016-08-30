@@ -23,6 +23,22 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 - `git push resin master`
 - see the magic happening, your device is getting updated Over-The-Air!
 
+## Configure via [environment variables](https://docs.resin.io/management/env-vars/)
+Variable Name | Default | Description
+------------ | -------------
+MOPIDY_HTTP_PORT | `8080` | the port on which expose the web UI
+MOPIDY_MPD_PORT | `6680` | the port on which expose the MPD service
+MOPIDY_AUDIO_MIXER_VOLUME | `50` | the default volume
+MOPIDY_GMUSIC_ENABLED | `false` | if set `true` loads the [Google Play Music extension](https://github.com/mopidy/mopidy-gmusic)
+MOPIDY_GMUSIC_USERNAME | `none` | your Google username
+MOPIDY_GMUSIC_PASSWORD | `none` | your Google Play Music password (an [app password](https://support.google.com/accounts/answer/185833) is suggested as a best practice)
+MOPIDY_GMUSIC_ALL_ACCESS | `false` | if set `true` configures the extension for handling the All Access subscription
+MOPIDY_SPOTIFY_ENABLED | `false` | if set `true` loads the [Spotify extension](https://github.com/mopidy/mopidy-spotify)
+MOPIDY_SPOTIFY_USERNAME | `none` | your Spotify username
+MOPIDY_SPOTIFY_PASSWORD | `none` | your Spotify password
+MOPIDY_SOUNDCLOUD_ENABLED | `false` | if set `true` loads the [SoundCloud extension](https://github.com/mopidy/mopidy-soundcloud)
+MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
+MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 ## Pictures
 
 ![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_005947.jpg)
