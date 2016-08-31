@@ -6,6 +6,7 @@
     const exec = require('child_process').exec;
     const chalk = require("chalk");
     const request = require('request');
+    const display = require(__dirname+'/libs/display.js');
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
     console.log(chalk.cyan('configuring Mopidy from env vars...'));
@@ -36,6 +37,9 @@
 
     fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
     console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + '; MPD port:' + mopidy.mpd.port));
+    display.init(function() {
+      display.image(display.splash);
+    });
     exec('systemctl start mopidy', (error, stdout, stderr) => {
         if (error) {
             console.log(chalk.red(`exec error: ${error}`));
@@ -46,7 +50,7 @@
     });
 
     setInterval(function keepalive() {
-
-    }, 60000);
+      display.random();
+    }, 5000);
 
 })();
