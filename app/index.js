@@ -6,7 +6,7 @@
     const exec = require('child_process').exec;
     const chalk = require("chalk");
     const request = require('request');
-    const display = require(__dirname+'/libs/display.js');
+    const display = require(__dirname + '/libs/display.js');
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
     console.log(chalk.cyan('configuring Mopidy from env vars...'));
@@ -38,7 +38,7 @@
     fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
     console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + '; MPD port:' + mopidy.mpd.port));
     display.init(function() {
-      display.image(display.splash);
+        display.image(display.presets.splash);
     });
     exec('systemctl start mopidy', (error, stdout, stderr) => {
         if (error) {
@@ -50,7 +50,29 @@
     });
 
     setInterval(function keepalive() {
-      display.random();
-    }, 5000);
+        request(process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/device?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY, function(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                switch (body.status) {
+                    case "Idle":
+                      display.image(display.presets.smile);
+                        break;
+                    case "Installing":
+                      display.image(display.presets.busy);
+                        break;
+                    case "Downloading":
+                      display.image(display.presets.download);
+                        break;
+                    case "Starting":
+                      display.image(display.presets.fwd);
+                        break;
+                    case "Stopping":
+                      display.image(display.presets.stop);
+                        break;
+                    default:
+
+                }
+            }
+        });
+    }, 1000);
 
 })();
