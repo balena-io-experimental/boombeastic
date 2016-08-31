@@ -52,27 +52,48 @@
     setInterval(function keepalive() {
         request(process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/device?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY, function(error, response, body) {
             if (!error && response.statusCode == 200) {
-                switch (body.status) {
-                    case "Idle":
-                      display.image(display.presets.smile);
-                        break;
-                    case "Installing":
-                      display.image(display.presets.busy);
-                        break;
-                    case "Downloading":
-                      display.image(display.presets.download);
-                        break;
-                    case "Starting":
-                      display.image(display.presets.fwd);
-                        break;
-                    case "Stopping":
-                      display.image(display.presets.stop);
-                        break;
-                    default:
-
+                if (body.update_pending) {
+                    if (body.update_downloaded) {
+                        display.image(display.presets.stop);
+                        setTimeout(function() {
+                            display.image(display.presets.busy);
+                            request.post({
+                                    url: process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/update?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY
+                                }, form: {
+                                    "force": true
+                                },
+                                function(err, httpResponse, body) {
+                                    if (err) {
+                                        display.image(display.presets.sad);
+                                    }
+                                });
+                        }, 4000);
+                    } else {
+                        display.image(display.presets.download);
+                    }
+                } else {
+                    switch (body.status) {
+                        case "Idle":
+                            display.image(display.presets.smile);
+                            break;
+                        case "Installing":
+                            display.image(display.presets.busy);
+                            break;
+                        case "Downloading":
+                            display.image(display.presets.download);
+                            break;
+                        case "Starting":
+                            display.image(display.presets.fwd);
+                            break;
+                        case "Stopping":
+                            display.image(display.presets.stop);
+                            break;
+                        default:
+                            display.image(display.presets.sad);
+                    }
                 }
             }
         });
-    }, 1000);
+    }, 500);
 
 })();

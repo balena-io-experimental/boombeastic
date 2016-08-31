@@ -12,6 +12,9 @@ mkdir /data/mopidy/local  >/dev/null 2>&1 || true
 mkdir /data/mopidy/media  >/dev/null 2>&1 || true
 mkdir /data/mopidy/playlists  >/dev/null 2>&1 || true
 
+# Lock automatic updates
+touch /data/resin-updates.lock
+
 while true; do
     node /usr/src/app/index.js
 done
