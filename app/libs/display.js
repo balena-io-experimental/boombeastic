@@ -39,7 +39,7 @@
             count: 64,
             max: 1
         });
-        self.writeArray(self.randomImage);
+        matrix.writeArray(self.randomImage);
     };
 
     module.exports = display();
