@@ -92,8 +92,6 @@
                         case "Stopping":
                             display.image(display.presets.stop);
                             break;
-                        default:
-                            display.image(display.presets.sad);
                     }
                 }
             } else {
