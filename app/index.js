@@ -53,6 +53,7 @@
     setInterval(function keepalive() {
         request(process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/device?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY, function(error, response, body) {
             if (!error && response.statusCode == 200) {
+                body = JSON.parse(body);
                 debug('supervisor', body);
                 if (body.update_pending) {
                     if (body.update_downloaded) {
