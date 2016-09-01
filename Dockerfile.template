@@ -23,6 +23,9 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   python-smbus \
   python-imaging \
   git \
+  avahi-daemon \
+  avahi-discover \
+  libnss-mdns \
   mopidy \
   alsa-base \
   alsa-utils \
@@ -38,7 +41,7 @@ RUN npm config set unsafe-perm true
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # Install Mopidy extensions
-RUN pip install mopidy-gmusic Mopidy-YouTube Mopidy-Spotmop mopidy-musicbox-webclient
+RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient
 
 # Save source folder
 RUN printf "%s\n" "${PWD##}" > SOURCEFOLDER
