@@ -68,7 +68,7 @@
                                 },
                                 function(err, httpResponse, body) {
                                     if (err) {
-                                        console.log(chalk.red('Error interacting with supervisor: ',err));
+                                        console.log(chalk.red('Error interacting with supervisor: ', err));
                                         display.image(display.presets.sad);
                                     }
                                 });
@@ -97,7 +97,7 @@
                 }
             } else {
                 display.image(display.presets.sad);
-                console.log(chalk.red('Error interacting with supervisor: ',err));
+                console.log(chalk.red('Error interacting with supervisor: ', err));
             }
         });
     }, 500);
