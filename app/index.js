@@ -11,7 +11,7 @@
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
     console.log(chalk.cyan('configuring Mopidy from env vars...'));
-
+    let updating = false;
     // http config
     mopidy.http.port = (process.env.MOPIDY_HTTP_PORT == null) ? "8080" : process.env.MOPIDY_HTTP_PORT;
 
@@ -55,7 +55,7 @@
             if (!error && response.statusCode == 200) {
                 body = JSON.parse(body);
                 debug('supervisor', body);
-                if (body.update_pending) {
+                if (body.update_pending && !updating) {
                     if (body.update_downloaded) {
                         display.image(display.presets.stop);
                         setTimeout(function() {
@@ -70,6 +70,8 @@
                                     if (err) {
                                         console.log(chalk.red('Error interacting with supervisor: ', err));
                                         display.image(display.presets.sad);
+                                    } else {
+                                      updating = true;
                                     }
                                 });
                         }, 2000);
