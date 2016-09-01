@@ -110,8 +110,8 @@
     };
     display.prototype.image = function(img) {
         let self = this;
-        let reversedImage = img.reverse();
-        matrix.writeArray(reversedImage);
+        matrix.writeArray(img.reverse());
+        img.reverse();
     };
     display.prototype.random = function() {
         let self = this;
