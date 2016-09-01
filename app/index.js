@@ -55,51 +55,23 @@
             if (!error && response.statusCode == 200) {
                 body = JSON.parse(body);
                 debug('supervisor', body);
-                if (body.update_pending && !updating) {
-                    if (body.update_downloaded) {
-                        display.image(display.presets.stop);
-                        setTimeout(function() {
-                            display.image(display.presets.busy);
-                            request.post({
-                                    url: process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/update?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY,
-                                    form: {
-                                        "force": true
-                                    },
-                                },
-                                function(err, httpResponse, body) {
-                                    if (err) {
-                                        console.log(chalk.red('Error interacting with supervisor: ', err));
-                                        display.image(display.presets.sad);
-                                    } else {
-                                        updating = true;
-                                    }
-                                });
-                        }, 2000);
-                    } else {
+                switch (body.status) {
+                    case "Idle":
+                        display.image(display.presets.smile);
+                        break;
+                    case "Installing":
+                        display.image(display.presets.busy);
+                        break;
+                    case "Downloading":
                         display.image(display.presets.download);
-                    }
-                } else {
-                    switch (body.status) {
-                        case "Idle":
-                            display.image(display.presets.smile);
-                            break;
-                        case "Installing":
-                            display.image(display.presets.busy);
-                            break;
-                        case "Downloading":
-                            display.image(display.presets.download);
-                            break;
-                        case "Starting":
-                            display.image(display.presets.fwd);
-                            break;
-                        case "Stopping":
-                            display.image(display.presets.stop);
-                            break;
-                    }
+                        break;
+                    case "Starting":
+                        display.image(display.presets.fwd);
+                        break;
+                    case "Stopping":
+                        display.image(display.presets.stop);
+                        break;
                 }
-            } else {
-                display.image(display.presets.sad);
-                console.log(chalk.red('Error interacting with supervisor: ', err));
             }
         });
     }, 500);

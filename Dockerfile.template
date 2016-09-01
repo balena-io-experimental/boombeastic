@@ -1,8 +1,5 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-node:slim
 
-## uncomment if you want systemd
-ENV INITSYSTEM on
-
 # Install wget and curl
 RUN apt-get clean && apt-get update && apt-get install -y \
   wget \
