@@ -7,6 +7,7 @@
     const chalk = require("chalk");
     const request = require('request');
     const display = require(__dirname + '/libs/display.js');
+    const debug = require('debug')('main');
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
     console.log(chalk.cyan('configuring Mopidy from env vars...'));
@@ -52,6 +53,7 @@
     setInterval(function keepalive() {
         request(process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/device?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY, function(error, response, body) {
             if (!error && response.statusCode == 200) {
+                debug('supervisor', body);
                 if (body.update_pending) {
                     if (body.update_downloaded) {
                         display.image(display.presets.stop);
@@ -67,7 +69,7 @@
                                         display.image(display.presets.sad);
                                     }
                                 });
-                        }, 4000);
+                        }, 2000);
                     } else {
                         display.image(display.presets.download);
                     }
