@@ -1,4 +1,5 @@
 # Parts list
+
 Name | Manufacturer/Publisher | Link | Qty
 ------------ | ------------- | ------------ | -------------
 Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Blonde Bamboo from Ponoko ](http://www.ponoko.com/make-and-sell/show-material/567-bamboo-blonde-3-ply#main-image) or  [P3 Birch Plywood from Vectorealism](https://en.vectorealism.com/product/digifab/materials-for-laser-cutting/birch-plywood/) ) | Resin.io | [Ponoko](https://github.com/resin-io-playground/boombeastic/raw/master/designs/boomBeastic_mini_ponoko.eps) /  [Vectorealism](https://github.com/resin-io-playground/boombeastic/raw/master/designs/boomBeastic_mini_vectorealism.eps)| 1
