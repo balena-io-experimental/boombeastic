@@ -94,6 +94,8 @@
                             display.image(display.presets.sad);
                     }
                 }
+            } else {
+                display.image(display.presets.sad);
             }
         });
     }, 500);
