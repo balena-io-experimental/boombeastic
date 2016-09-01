@@ -60,9 +60,10 @@
                         setTimeout(function() {
                             display.image(display.presets.busy);
                             request.post({
-                                    url: process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/update?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY
-                                }, form: {
-                                    "force": true
+                                    url: process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/update?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY,
+                                    form: {
+                                        "force": true
+                                    },
                                 },
                                 function(err, httpResponse, body) {
                                     if (err) {
