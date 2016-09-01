@@ -71,7 +71,7 @@
                                         console.log(chalk.red('Error interacting with supervisor: ', err));
                                         display.image(display.presets.sad);
                                     } else {
-                                      updating = true;
+                                        updating = true;
                                     }
                                 });
                         }, 2000);
