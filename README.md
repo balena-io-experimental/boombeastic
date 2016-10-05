@@ -4,11 +4,17 @@ A Raspberry Pi Zero based smart connected speaker based on [Mopidy](https://gith
 
 ## Parts list
 
-please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/BoM.md)
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/bom.md)
+#### rpi0 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/bom.md)
 
 ## Assembly
 
-please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/assembly.md)
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/assembly.md)
+#### rpi0 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/assembly.md)
 
 ## Getting started
 
@@ -40,17 +46,33 @@ MOPIDY_SOUNDCLOUD_ENABLED | `false` | if set `true` loads the [SoundCloud extens
 MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
 MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 
+## Videos
+
+* [video1](https://www.youtube.com/watch?v=EnLgmW8kyis)
+
 ## Pictures
 
-![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_005947.jpg)
+![v1_rpi3_1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi3/photos/IMG_20160929_163629.jpg)
 
 ---
 
-![v1_mono](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160711_222357.jpg)
+![v1_rpi3_2](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi3/photos/IMG_20160929_163751.jpg)
 
 ---
 
-![v1_battery](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/photos/20160712_150552.jpg)
+![v1_rpi3_3](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi3/photos/IMG_20161004_170024.jpg)
+
+---
+
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi0/photos/20160712_005947.jpg)
+
+---
+
+![v1_mono](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi0/photos/20160711_222357.jpg)
+
+---
+
+![v1_battery](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi0/photos/20160712_150552.jpg)
 
 ## License
 

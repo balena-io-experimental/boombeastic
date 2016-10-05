@@ -1,0 +1,13 @@
+# Mini V1 rpi2/2+/3 Parts list
+
+Name | Manufacturer/Publisher | Link | Qty
+------------ | ------------- | ------------ | -------------
+Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Blonde Bamboo from Ponoko ](http://www.ponoko.com/make-and-sell/show-material/567-bamboo-blonde-3-ply#main-image) or  [P3 Birch Plywood from Vectorealism](https://en.vectorealism.com/product/digifab/materials-for-laser-cutting/birch-plywood/) ) | Resin.io | [Ponoko](https://github.com/resin-io-playground/boombeastic/raw/master/designs/v1/mini/rpi3/boomBeastic_mini_rpi3_ponoko.eps) /  [Vectorealism](https://github.com/resin-io-playground/boombeastic/raw/master/designs/v1/mini/rpi3/boomBeastic_mini_rpi3_vectorealism.eps)| 1
+Adafruit MAX98357 I2S Class-D Mono Amp | Adafruit | [Adafruit](https://www.adafruit.com/product/3006) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-class-d-amplifier-breakout-max98357a) | 1
+Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
+Raspberry Pi 3 model B | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/3055) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-3) | 1
+Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) | 1
+5W 4 Ohm 65mm Full Range Speaker | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/5w-4-ohm-65mm-full-range-speaker) | 1
+Female to Female Jumper Jerky | Pimoroni | [Pimoroni](https://shop.pimoroni.com/products/jumper-jerky) | 1
+M3x50mm Hex Socket Head Knurled Cap Screws Bolts Nuts Set 30Pcs | Amazon | [co.uk](https://www.amazon.co.uk/sourcingmap®-M3x50mm-Socket-Knurled-Screws/dp/B015A327QQ/) / [com](https://www.amazon.com/uxcell-M3x50mm-Socket-Knurled-Screws/dp/B015A327QQ/) / [it](https://www.amazon.it/testa-esagonale-bulloni-zigrinate-pezzi/dp/B015A327QQ/) | 1
+M2.5 / M2 screws and nuts pack (overkill, but the easiest and cheapest way right now) | Amazon | [co.uk](https://www.amazon.co.uk/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B01DJYXSHU/ref=sr_1_1?ie=UTF8&qid=1467796678&sr=8-1&keywords=M2+M3+nylon) / [com](https://www.amazon.com/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B00MMWDYI4/ref=sr_1_8?ie=UTF8&qid=1467796552&sr=8-8&keywords=M2+nylon+nut&refinements=p_85%3A2470955011) / [it](https://www.amazon.it/esagonali-distanziali-Kit-accessori-assortiti-plastica/dp/B01DJYXSHU/ref=sr_1_3?ie=UTF8&qid=1467796951&sr=8-3&keywords=M2+M3+nylon) | 1
