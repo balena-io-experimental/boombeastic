@@ -4,11 +4,17 @@ A Raspberry Pi Zero based smart connected speaker based on [Mopidy](https://gith
 
 ## Parts list
 
-please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/BoM.md)
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/bom.md)
+#### rpi0 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/bom.md)
 
 ## Assembly
 
-please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/assembly.md)
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/assembly.md)
+#### rpi0 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/assembly.md)
 
 ## Getting started
 
