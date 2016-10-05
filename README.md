@@ -21,7 +21,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 - Sign up on [resin.io](https://dashboard.resin.io/signup)
 - go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new RPI zero application called `boombeasticmini`
 - clone this repository to your local workspace
-- set these environment variables in the `Fleet Configuration` application side tab
+- set these variables in the `Fleet Configuration` application side tab
 
   - `RESIN_HOST_CONFIG_dtoverlay` = `hifiberry-dac`
 
