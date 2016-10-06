@@ -48,7 +48,8 @@ MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](h
 
 ## Videos
 
-* [video1](https://www.youtube.com/watch?v=EnLgmW8kyis)
+* [YouTube 1](https://www.youtube.com/watch?v=EnLgmW8kyis)
+* [Vine 1](https://vine.co/v/5g71nzHwXvr)
 
 ## Pictures
 
