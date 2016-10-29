@@ -28,11 +28,12 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 - add the _resin remote_ to your local workspace using the useful shortcut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
 - `git push resin master`
 - see the magic happening, your device is getting updated Over-The-Air!
+- after the OTA is completed, you should be able to point your browser to `<boombeasticIP>:80` (get the device IP from the resin dashboard)
+- you can use any MPD client pointing it at `<boombeasticIP>:6680` (the port can be changed using `MOPIDY_MPD_PORT` env var)
 
 ## Configure via [environment variables](https://docs.resin.io/management/env-vars/)
 Variable Name | Default | Description
 ------------ | ------------- | -------------
-MOPIDY_HTTP_PORT | `8080` | the port on which expose the web UI
 MOPIDY_MPD_PORT | `6680` | the port on which expose the MPD service
 MOPIDY_AUDIO_MIXER_VOLUME | `50` | the default volume
 MOPIDY_GMUSIC_ENABLED | `false` | if set `true` loads the [Google Play Music extension](https://github.com/mopidy/mopidy-gmusic)

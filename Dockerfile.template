@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
 
-# WTF is going on with httpredir from debian? removing it the dirty way
+# debian httpredir mirror proxy often ends up with 404s - editing source file to avoid it
 RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list
 
 # Install apt deps
@@ -31,8 +31,12 @@ RUN apt-get update && apt-get install -y \
   alsa-utils \
   gstreamer1.0-alsa \
   gstreamer1.0-plugins-bad \
+  haproxy \
   mopidy-spotify \
   mopidy-soundcloud && rm -rf /var/lib/apt/lists/*
+
+# Enable haproxy
+RUN echo 'ENABLED=1' >> /etc/default/haproxy
 
 # Set npm
 RUN npm config set unsafe-perm true
@@ -45,6 +49,9 @@ RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient
 
 # Save source folder
 RUN printf "%s\n" "${PWD##}" > SOURCEFOLDER
+
+# Deploy haproxy config
+COPY "$SOURCEFOLDER/Dockerbin/haproxy.cfg" /etc/haproxy/haproxy.cfg
 
 # Move to app dir
 WORKDIR /usr/src/app
