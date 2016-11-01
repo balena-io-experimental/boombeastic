@@ -37,7 +37,7 @@
     mopidy.youtube.enabled = (process.env.MOPIDY_YOUTUBE_ENABLED == null) ? "false" : process.env.MOPIDY_YOUTUBE_ENABLED;
 
     fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
-    console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + '; MPD port:' + mopidy.mpd.port));
+    console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
     display.init(function() {
         display.image(display.presets.splash);
     });
