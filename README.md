@@ -19,7 +19,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 ## Getting started
 
 - Sign up on [resin.io](https://dashboard.resin.io/signup)
-- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new RPI zero application called `boombeasticmini`
+- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new application called `boombeasticmini`
 - clone this repository to your local workspace
 - set these variables in the `Fleet Configuration` application side tab
 
