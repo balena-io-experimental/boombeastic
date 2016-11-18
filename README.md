@@ -19,7 +19,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 ## Getting started
 
 - Sign up on [resin.io](https://dashboard.resin.io/signup)
-- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new application called `boombeasticmini`
+- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new RPI zero application called `boombeasticmini`
 - clone this repository to your local workspace
 - set these variables in the `Fleet Configuration` application side tab
 
@@ -46,6 +46,7 @@ MOPIDY_SPOTIFY_PASSWORD | `none` | your Spotify password
 MOPIDY_SOUNDCLOUD_ENABLED | `false` | if set `true` loads the [SoundCloud extension](https://github.com/mopidy/mopidy-soundcloud)
 MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
 MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
+PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https://github.com/resin-io/resin-wifi-connect) spawns if no known WiFi networks are found in order to expose WiFi configuration
 
 ## Videos
 

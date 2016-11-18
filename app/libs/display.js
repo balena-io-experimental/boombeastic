@@ -1,12 +1,12 @@
 #!/bin/env node
 
-(function() {
-    'use strict';
+{
     const rpio = require('rpio');
     const matrix = require('8x8matrix');
     const randomIntArray = require('random-int-array');
 
     let display = function() {
+        'use strict';
         if (!(this instanceof display)) return new display();
 
         this.presets = {
@@ -109,6 +109,17 @@
                 0, 0, 1, 1, 0, 0, 0, 0,
             ],
 
+            "wifi": [
+                1, 1, 1, 1, 1, 1, 1, 1,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 1, 1, 1, 1, 1, 1, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 1, 1, 1, 1, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 1, 1, 0, 0, 0,
+                0, 0, 0, 1, 1, 0, 0, 0,
+            ],
+
             "blank": [
                 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0,
@@ -125,17 +136,20 @@
 
     };
 
-    display.prototype.init = function(callback) {
+    display.prototype.init = (callback) => {
+        'use strict';
         let self = this;
         matrix.init(rpio);
         callback();
     };
-    display.prototype.image = function(img) {
+    display.prototype.image = (img) => {
+        'use strict';
         let self = this;
         matrix.writeArray(img.reverse());
         img.reverse();
     };
-    display.prototype.random = function() {
+    display.prototype.random = () => {
+        'use strict';
         let self = this;
         self.randomImage = randomIntArray({
             count: 64,
@@ -146,4 +160,4 @@
 
     module.exports = display();
 
-})();
+}
