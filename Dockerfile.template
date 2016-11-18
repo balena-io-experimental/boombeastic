@@ -33,7 +33,14 @@ RUN apt-get update && apt-get install -y \
   gstreamer1.0-plugins-bad \
   haproxy \
   mopidy-spotify \
-  mopidy-soundcloud && rm -rf /var/lib/apt/lists/*
+  mopidy-soundcloud \
+  dnsmasq \
+  hostapd \
+  iproute2 \
+  iw \
+  libdbus-1-dev \
+  libexpat-dev \
+  rfkill && rm -rf /var/lib/apt/lists/*
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
@@ -53,6 +60,8 @@ RUN printf "%s\n" "${PWD##}" > SOURCEFOLDER
 # Deploy haproxy config
 COPY "$SOURCEFOLDER/Dockerbin/haproxy.cfg" /etc/haproxy/haproxy.cfg
 
+RUN mkdir -p /usr/src/app/
+
 # Move to app dir
 WORKDIR /usr/src/app
 
@@ -65,13 +74,27 @@ COPY "$SOURCEFOLDER/Dockerbin/asound.conf" /etc/asound.conf
 # Move package.json to filesystem
 COPY "$SOURCEFOLDER/app/package.json" ./
 
-# NPM i app
-RUN JOBS=MAX npm i --production
+# Install npm modules for the application
+RUN JOBS=MAX npm install --unsafe-perm --production \
+	&& npm cache clean
+
+# Move bower.json to filesystem
+COPY "$SOURCEFOLDER/app/bower.json $SOURCEFOLDER/app/.bowerrc" /usr/src/app/
+
+# Install
+RUN ./node_modules/.bin/bower --allow-root install \
+	&& ./node_modules/.bin/bower --allow-root cache clean
 
 # Move app to filesystem
 COPY "$SOURCEFOLDER/app" ./
 
-## uncomment if you want systemd
+# Compile coffee
+RUN ./node_modules/.bin/coffee -c ./src
+
+# Disable haproxy service - we will manually start it later
+RUN systemctl disable haproxy
+
+## Uncomment if you want systemd
 ENV INITSYSTEM on
 
 # Start app
