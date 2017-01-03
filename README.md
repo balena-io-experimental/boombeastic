@@ -2,6 +2,8 @@
 
 A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
 
+## Background
+*__You can read about the making of the boombeastic and see more photos [here](https://resin.io/blog/the-making-of-boombeastic/)__*
 ## Parts list
 
 #### rpi2/2+/3 version
