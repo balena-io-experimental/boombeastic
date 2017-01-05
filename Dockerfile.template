@@ -1,20 +1,14 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:slim
-
-# Install wget and curl
-RUN apt-get update && apt-get install -y \
-  wget \
-  curl && rm -rf /var/lib/apt/lists/*
+FROM resin/%%RESIN_MACHINE_NAME%%-node:6.9.2
 
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
 
 # debian httpredir mirror proxy often ends up with 404s - editing source file to avoid it
-RUN sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list
+RUN sed -i "s!httpredir.debian.org!`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`!" /etc/apt/sources.list
 
 # Install apt deps
 RUN apt-get update && apt-get install -y \
   apt-utils \
-  build-essential \
   libasound2-dev \
   libffi-dev \
   libssl-dev \
@@ -44,9 +38,6 @@ RUN apt-get update && apt-get install -y \
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
-
-# Set npm
-RUN npm config set unsafe-perm true
 
 # Update setup-tools
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
@@ -81,7 +72,7 @@ RUN JOBS=MAX npm install --unsafe-perm --production \
 # Move bower.json to filesystem
 COPY "$SOURCEFOLDER/app/bower.json $SOURCEFOLDER/app/.bowerrc" /usr/src/app/
 
-# Install
+# Install bower deps
 RUN ./node_modules/.bin/bower --allow-root install \
 	&& ./node_modules/.bin/bower --allow-root cache clean
 
