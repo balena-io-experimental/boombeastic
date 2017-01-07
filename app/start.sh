@@ -9,10 +9,10 @@ rmmod snd_bcm2835  >/dev/null 2>&1 || true
 modprobe i2c-dev || true
 
 # Ensure mopidy folders are there
-mkdir /data/mopidy  >/dev/null 2>&1 || true
-mkdir /data/mopidy/local  >/dev/null 2>&1 || true
-mkdir /data/mopidy/media  >/dev/null 2>&1 || true
-mkdir /data/mopidy/playlists  >/dev/null 2>&1 || true
+mkdir -p /data/mopidy/local >/dev/null 2>&1 || true
+mkdir /data/mopidy/media >/dev/null 2>&1 || true
+mkdir /data/mopidy/playlists >/dev/null 2>&1 || true
+mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 
 # Start resin-wifi-connect
 node /usr/src/app/wifi_connect.js

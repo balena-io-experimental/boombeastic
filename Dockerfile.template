@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
   python-pip \
   python-smbus \
   python-imaging \
+  python-alsaaudio \
   git \
   avahi-daemon \
   avahi-discover \
@@ -25,6 +26,8 @@ RUN apt-get update && apt-get install -y \
   alsa-utils \
   gstreamer1.0-alsa \
   gstreamer1.0-plugins-bad \
+  gstreamer1.0-plugins-ugly \
+  gstreamer1.0-libav \
   haproxy \
   mopidy-spotify \
   mopidy-soundcloud \
@@ -43,7 +46,7 @@ RUN echo 'ENABLED=1' >> /etc/default/haproxy
 RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # Install Mopidy extensions
-RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient
+RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient Mopidy-Local-SQLite Mopidy-ALSAMixer
 
 # Save source folder
 RUN printf "%s\n" "${PWD##}" > SOURCEFOLDER
