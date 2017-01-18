@@ -4,7 +4,7 @@
     const exec = require('child_process').exec;
     const chalk = require("chalk");
     const request = require('request');
-    const display = require(__dirname + '/libs/display.js');
+    const display = require(__dirname + '/libs/ledmatrix/index.js');
     const debug = require('debug')('main');
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));

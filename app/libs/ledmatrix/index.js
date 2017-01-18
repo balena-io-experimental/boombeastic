@@ -1,12 +1,12 @@
 #!/bin/env node
 
 {
-    const rpio = require('rpio');
-    const matrix = require('8x8matrix');
+    const matrix = require(__dirname + '/libs/ht16k33.js');
     const randomIntArray = require('random-int-array');
+    const debug = require('debug')('display');
 
     let display = function() {
-        'use strict';
+        "use strict";
         if (!(this instanceof display)) return new display();
 
         this.presets = {
@@ -110,15 +110,15 @@
             ],
 
             "wifi": [
-                1, 1, 1, 1, 1, 1, 1, 1,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 1, 1, 1, 1, 1, 1, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 1, 1, 1, 1, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 1, 1, 0, 0, 0,
-                0, 0, 0, 1, 1, 0, 0, 0,
-            ],
+               1, 1, 1, 1, 1, 1, 1, 1,
+               0, 0, 0, 0, 0, 0, 0, 0,
+               0, 1, 1, 1, 1, 1, 1, 0,
+               0, 0, 0, 0, 0, 0, 0, 0,
+               0, 0, 1, 1, 1, 1, 0, 0,
+               0, 0, 0, 0, 0, 0, 0, 0,
+               0, 0, 0, 1, 1, 0, 0, 0,
+               0, 0, 0, 1, 1, 0, 0, 0,
+           ],
 
             "blank": [
                 0, 0, 0, 0, 0, 0, 0, 0,
@@ -136,20 +136,18 @@
 
     };
 
-    display.prototype.init = (callback) => {
-        'use strict';
-        let self = this;
-        matrix.init(rpio);
-        callback();
+    display.prototype.init = function() {
+        "use strict";
+        matrix.init();
     };
-    display.prototype.image = (img) => {
-        'use strict';
+    display.prototype.image = function(img) {
+        "use strict";
         let self = this;
         matrix.writeArray(img.reverse());
         img.reverse();
     };
-    display.prototype.random = () => {
-        'use strict';
+    display.prototype.random = function() {
+        "use strict";
         let self = this;
         self.randomImage = randomIntArray({
             count: 64,
