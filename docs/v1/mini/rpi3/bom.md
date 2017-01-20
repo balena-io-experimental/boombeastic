@@ -6,6 +6,7 @@ Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Veneer Core - Bi
 Adafruit MAX98357 I2S Class-D Mono Amp | Adafruit | [Adafruit](https://www.adafruit.com/product/3006) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-class-d-amplifier-breakout-max98357a) | 1
 Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
 Raspberry Pi 3 model B | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/3055) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-3) | 1
+Micro SD card | Shoppe | URL | 1
 Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) | 1
 5W 4 Ohm 65mm Full Range Speaker | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/5w-4-ohm-65mm-full-range-speaker) | 1
 Female to Female Jumper Jerky | Pimoroni | [Pimoroni](https://shop.pimoroni.com/products/jumper-jerky) | 1
