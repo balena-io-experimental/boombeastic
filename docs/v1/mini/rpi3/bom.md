@@ -6,8 +6,8 @@ Frame lasercut kit (from 4 to 7 mm layers height, suggested [P3 Veneer Core - Bi
 Adafruit MAX98357 I2S Class-D Mono Amp | Adafruit | [Adafruit](https://www.adafruit.com/product/3006) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-class-d-amplifier-breakout-max98357a) | 1
 Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
 Raspberry Pi 3 model B | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/3055) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-3) | 1
-Micro SD card | Shoppe | URL | 1
-Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) | 1
+Micro SD card (at least 4G and class 10), we recommend the [SanDisk Ultra] (https://www.sandisk.com/home/memory-cards/microsd-cards/ultra-microsd) | Amazon | [.com](https://www.amazon.com/SanDisk-Class-Micro-Adapter-SDSDQUA-008G-A11A/dp/B0085EG6OW/ref=sr_1_17?s=pc&ie=UTF8&qid=1485211555&sr=1-17&keywords=sandisk+ultra&refinements=p_n_feature_keywords_two_browse-bin%3A5947557011%2Cp_89%3ASanDisk%2Cp_n_feature_two_browse-bin%3A6518302011) | 1
+Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation/Adafruit |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) / [Adafruit](https://www.adafruit.com/products/1995) | 1
 5W 4 Ohm 65mm Full Range Speaker | Pimoroni |  [Pimoroni](https://shop.pimoroni.com/products/5w-4-ohm-65mm-full-range-speaker) | 1
 Female to Female Jumper Jerky | Pimoroni | [Pimoroni](https://shop.pimoroni.com/products/jumper-jerky) | 1
 M3x50mm Hex Socket Head Knurled Cap Screws Bolts Nuts Set 30Pcs | Amazon | [co.uk](https://www.amazon.co.uk/sourcingmap®-M3x50mm-Socket-Knurled-Screws/dp/B015A327QQ/) / [com](https://www.amazon.com/uxcell-M3x50mm-Socket-Knurled-Screws/dp/B015A327QQ/) / [it](https://www.amazon.it/testa-esagonale-bulloni-zigrinate-pezzi/dp/B015A327QQ/) | 1
