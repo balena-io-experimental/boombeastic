@@ -79,9 +79,6 @@
         emoji.on('emoji', (emoji) => {
             console.log(chalk.magenta('new emoji received! applying...'));
             display.image(emoji);
-            dots = _.filter(emoji, function(o) {
-                return o;
-            });
         });
     });
 
