@@ -50,9 +50,9 @@
         console.log(chalk.red(`stderr: ${stderr}`));
     });
 
-    supervisorClient.start(500, () => {
+    supervisor.start(500, () => {
         'use strict';
-        supervisorClient.on('status', (status) => {
+        supervisor.on('status', (status) => {
             console.log(chalk.white('Supervisor status update: ' + status));
             switch (status) {
                 case "Idle":
