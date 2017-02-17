@@ -5,6 +5,8 @@
     const chalk = require("chalk");
     const request = require('request');
     const display = require(__dirname + '/libs/ledmatrix/index.js');
+    const supervisor = require(__dirname + '/libs/supervisor/index.js');
+    const emoji = require(__dirname + '/libs/emoji/index.js');
     const debug = require('debug')('main');
 
     let mopidy = ini.parse(fs.readFileSync('/etc/mopidy/mopidy.conf', 'utf-8'));
@@ -12,25 +14,25 @@
     let updating = false;
 
     // http config
-    mopidy.http.port = (process.env.MOPIDY_HTTP_PORT == null) ? "8080" : process.env.MOPIDY_HTTP_PORT;
+    mopidy.http.port = parseInt(process.env.MOPIDY_HTTP_PORT) || 8080;
     // mpd config
-    mopidy.mpd.port = (process.env.MOPIDY_MPD_PORT == null) ? "6680" : process.env.MOPIDY_MPD_PORT;
+    mopidy.mpd.port = parseInt(process.env.MOPIDY_MPD_PORT) || 6680;
     // audio config
-    mopidy.audio.mixer_volume = (process.env.MOPIDY_AUDIO_MIXER_VOLUME == null) ? "50" : process.env.MOPIDY_AUDIO_MIXER_VOLUME;
+    mopidy.audio.mixer_volume = parseInt(process.env.MOPIDY_AUDIO_MIXER_VOLUME) || 50;
     // Google Play Music config
-    mopidy.gmusic.enabled = (process.env.MOPIDY_GMUSIC_ENABLED == null) ? "false" : process.env.MOPIDY_GMUSIC_ENABLED;
-    mopidy.gmusic.username = (process.env.MOPIDY_GMUSIC_USERNAME == null) ? "none" : process.env.MOPIDY_GMUSIC_USERNAME;
-    mopidy.gmusic.password = (process.env.MOPIDY_GMUSIC_PASSWORD == null) ? "none" : process.env.MOPIDY_GMUSIC_PASSWORD;
-    mopidy.gmusic.all_access = (process.env.MOPIDY_GMUSIC_ALL_ACCESS == null) ? "false" : process.env.MOPIDY_GMUSIC_ALL_ACCESS;
+    mopidy.gmusic.enabled = process.env.MOPIDY_GMUSIC_ENABLED === '1' ? true : false;
+    mopidy.gmusic.username = process.env.MOPIDY_GMUSIC_USERNAME || "none";
+    mopidy.gmusic.password = process.env.MOPIDY_GMUSIC_PASSWORD || "none";
+    mopidy.gmusic.all_access = process.env.MOPIDY_GMUSIC_ALL_ACCESS === '1' ? true : false;
     // Spotify config
-    mopidy.spotify.enabled = (process.env.MOPIDY_SPOTIFY_ENABLED == null) ? "false" : process.env.MOPIDY_SPOTIFY_ENABLED;
-    mopidy.spotify.username = (process.env.MOPIDY_SPOTIFY_USERNAME == null) ? "none" : process.env.MOPIDY_SPOTIFY_USERNAME;
-    mopidy.spotify.password = (process.env.MOPIDY_SPOTIFY_PASSWORD == null) ? "none" : process.env.MOPIDY_SPOTIFY_PASSWORD;
+    mopidy.spotify.enabled = process.env.MOPIDY_SPOTIFY_ENABLED === '1' ? true : false;
+    mopidy.spotify.username = process.env.MOPIDY_SPOTIFY_USERNAME || "none";
+    mopidy.spotify.password = process.env.MOPIDY_SPOTIFY_PASSWORD || "none";
     // Soundcloud config
-    mopidy.soundcloud.enabled = (process.env.MOPIDY_SOUNDCLOUD_ENABLED == null) ? "false" : process.env.MOPIDY_SOUNDCLOUD_ENABLED;
-    mopidy.soundcloud.auth_token = (process.env.MOPIDY_SOUNDCLOUD_AUTH_TOKEN == null) ? "none" : process.env.MOPIDY_SOUNDCLOUD_AUTH_TOKEN;
-    // Soundcloud config
-    mopidy.youtube.enabled = (process.env.MOPIDY_YOUTUBE_ENABLED == null) ? "false" : process.env.MOPIDY_YOUTUBE_ENABLED;
+    mopidy.soundcloud.enabled = process.env.MOPIDY_SOUNDCLOUD_ENABLED === '1' ? true : false;
+    mopidy.soundcloud.auth_token = process.env.MOPIDY_SOUNDCLOUD_AUTH_TOKEN || "none";
+    // YouTube config
+    mopidy.youtube.enabled = process.env.MOPIDY_YOUTUBE_ENABLED === '1' ? true : false;
 
     fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
     console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
@@ -48,31 +50,39 @@
         console.log(chalk.red(`stderr: ${stderr}`));
     });
 
-    setInterval(function keepalive() {
+    supervisorClient.start(500, () => {
         'use strict';
-        request(process.env.RESIN_SUPERVISOR_ADDRESS + '/v1/device?apikey=' + process.env.RESIN_SUPERVISOR_API_KEY, function(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                body = JSON.parse(body);
-                debug('supervisor', body);
-                switch (body.status) {
-                    case "Idle":
-                        display.image(display.presets.smile);
-                        break;
-                    case "Installing":
-                        display.image(display.presets.busy);
-                        break;
-                    case "Downloading":
-                        display.image(display.presets.download);
-                        break;
-                    case "Starting":
-                        display.image(display.presets.fwd);
-                        break;
-                    case "Stopping":
-                        display.image(display.presets.stop);
-                        break;
-                }
+        supervisorClient.on('status', (status) => {
+            console.log(chalk.white('Supervisor status update: ' + status));
+            switch (status) {
+                case "Idle":
+                    display.image(display.presets.smile);
+                    break;
+                case "Installing":
+                    display.image(display.presets.busy);
+                    break;
+                case "Downloading":
+                    display.image(display.presets.download);
+                    break;
+                case "Starting":
+                    display.image(display.presets.fwd);
+                    break;
+                case "Stopping":
+                    display.image(display.presets.stop);
+                    break;
             }
         });
-    }, 500);
+    });
+
+    emoji.start(() => {
+        'use strict';
+        emoji.on('emoji', (emoji) => {
+            console.log(chalk.magenta('new emoji received! applying...'));
+            display.image(emoji);
+            dots = _.filter(emoji, function(o) {
+                return o;
+            });
+        });
+    });
 
 }
