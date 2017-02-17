@@ -45,7 +45,6 @@
         "strict": true
     },
     "dependencies": {
-        "8x8matrix": "0.0.1",
         "chalk": "^1.1.3",
         "debug": "^2.2.0",
         "i2c": "^0.2.3",
