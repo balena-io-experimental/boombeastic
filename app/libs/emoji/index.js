@@ -13,6 +13,7 @@
     const _ = require('lodash');
     const app = express();
 
+
     errorHandler = (err, req, res, next) => {
         'use strict';
         res.status(500);
@@ -58,8 +59,7 @@
             let emoji = req.params.emoji.split(",");
             let emojiParsed = [];
             _.forEach(emoji, function(value) {
-                dot = parseInt(value);
-                emojiParsed.push(dot);
+                emojiParsed.push(parseInt(value));
             });
             self.emit("emoji", emojiParsed);
             res.status(200).send('OK');
