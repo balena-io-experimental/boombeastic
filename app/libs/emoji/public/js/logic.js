@@ -24,6 +24,19 @@ jQuery('document').ready(function($) {
         });
         console.log(image);
     });
+    $("#reset_image").bind("click", function() {
+        $.ajax({
+            type: "POST",
+            url: "/emoji/v1/emoji/reset",
+            crossDomain: true,
+            success: function(responseData, status, xhr) {
+
+            },
+            error: function(request, status, error) {
+                console.log(request.responseText);
+            }
+        });
+    });
     $("#clear_image").bind("click", function() {
         $.ajax({
             type: "DELETE",

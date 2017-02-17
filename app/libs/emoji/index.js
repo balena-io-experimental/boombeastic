@@ -65,6 +65,12 @@
             res.status(200).send('OK');
         });
 
+        app.post('/v1/emoji/reset', (req, res) => {
+            // Draws the Emoji on the LED Display
+            self.emit("reset");
+            res.status(200).send('OK');
+        });
+
         app.delete('/v1/emoji', (req, res) => {
             // Clears the LED Dipsplay
             let emoji = [

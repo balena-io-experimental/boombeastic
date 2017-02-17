@@ -80,6 +80,10 @@
             console.log(chalk.magenta('new emoji received! applying...'));
             display.image(emoji);
         });
+        emoji.on('reset', (emoji) => {
+            console.log(chalk.magenta('emoji reset request received! applying...'));
+            display.image(display.presets.smile);
+        });
     });
 
 }
