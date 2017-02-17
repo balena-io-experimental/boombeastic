@@ -13,7 +13,7 @@ jQuery('document').ready(function($) {
         var imageString = image.join();
         $.ajax({
             type: "POST",
-            url: "/v1/emoji/" + imageString,
+            url: "/emoji/v1/emoji/" + imageString,
             crossDomain: true,
             success: function(responseData, status, xhr) {
 
@@ -27,7 +27,7 @@ jQuery('document').ready(function($) {
     $("#clear_image").bind("click", function() {
         $.ajax({
             type: "DELETE",
-            url: "/v1/emoji/",
+            url: "/emoji/v1/emoji/",
             crossDomain: true,
             success: function(responseData, status, xhr) {
                 image = [
