@@ -38,21 +38,21 @@ Variable Name | Default | Description
 ------------ | ------------- | -------------
 MOPIDY_MPD_PORT | `6680` | the port on which expose the MPD service
 MOPIDY_AUDIO_MIXER_VOLUME | `50` | the default volume
-MOPIDY_GMUSIC_ENABLED | `false` | if set `true` loads the [Google Play Music extension](https://github.com/mopidy/mopidy-gmusic)
+MOPIDY_GMUSIC_ENABLED | `0` | if set `1` loads the [Google Play Music extension](https://github.com/mopidy/mopidy-gmusic)
 MOPIDY_GMUSIC_USERNAME | `none` | your Google username
 MOPIDY_GMUSIC_PASSWORD | `none` | your Google Play Music password (an [app password](https://support.google.com/accounts/answer/185833) is suggested as a best practice)
-MOPIDY_GMUSIC_ALL_ACCESS | `false` | if set `true` configures the extension for handling the All Access subscription
-MOPIDY_SPOTIFY_ENABLED | `false` | if set `true` loads the [Spotify extension](https://github.com/mopidy/mopidy-spotify)
+MOPIDY_GMUSIC_ALL_ACCESS | `0` | if set `1` configures the extension for handling the All Access subscription
+MOPIDY_SPOTIFY_ENABLED | `0` | if set `1` loads the [Spotify extension](https://github.com/mopidy/mopidy-spotify)
 MOPIDY_SPOTIFY_USERNAME | `none` | your Spotify username
 MOPIDY_SPOTIFY_PASSWORD | `none` | your Spotify password
-MOPIDY_SOUNDCLOUD_ENABLED | `false` | if set `true` loads the [SoundCloud extension](https://github.com/mopidy/mopidy-soundcloud)
+MOPIDY_SOUNDCLOUD_ENABLED | `0` | if set `1` loads the [SoundCloud extension](https://github.com/mopidy/mopidy-soundcloud)
 MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
-MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
+MOPIDY_YOUTUBE_ENABLED | `0` | if set `1` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https://github.com/resin-io/resin-wifi-connect) spawns if no known WiFi networks are found in order to expose WiFi configuration
 
 ## Services
 
-* `http://<boombeasticIP>` => Mopidy frontend
+* `http://<boombeasticIP>` or <RESIN-PUBLIC-URL>=> Mopidy frontend
 * `http://<boombeasticIP>/emoji/` => Emoji GUI
 * `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
 
