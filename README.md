@@ -50,6 +50,12 @@ MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopi
 MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https://github.com/resin-io/resin-wifi-connect) spawns if no known WiFi networks are found in order to expose WiFi configuration
 
+## Services
+
+* `http://<boombeasticIP>` => Mopidy frontend
+* `http://<boombeasticIP>/emoji/` => Emoji GUI
+* `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
+
 ## Videos
 
 * [YouTube 1](https://www.youtube.com/watch?v=EnLgmW8kyis)
