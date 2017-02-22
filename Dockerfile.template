@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:6.9.2
+FROM resin/%%RESIN_MACHINE_NAME%%-node:6.9.3
 
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
@@ -10,6 +10,8 @@ RUN sed -i "s!httpredir.debian.org!`curl -s -D - http://httpredir.debian.org/dem
 RUN apt-get update && apt-get install -y \
   apt-utils \
   libasound2-dev \
+  libvorbis-dev \
+  libflac-dev \
   libffi-dev \
   libssl-dev \
   python-dev \
@@ -20,6 +22,7 @@ RUN apt-get update && apt-get install -y \
   git \
   avahi-daemon \
   avahi-discover \
+  libavahi-client-dev \
   libnss-mdns \
   mopidy \
   alsa-base \
@@ -38,6 +41,14 @@ RUN apt-get update && apt-get install -y \
   libdbus-1-dev \
   libexpat-dev \
   rfkill && rm -rf /var/lib/apt/lists/*
+
+# Install snapcast client
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.10.0/snapclient_0.10.0_armhf.deb \
+  && dpkg -i snapclient_0.10.0_armhf.deb && rm snapclient_0.10.0_armhf.deb
+
+# Install snapcast server
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.10.0/snapserver_0.10.0_armhf.deb \
+  && dpkg -i snapserver_0.10.0_armhf.deb && rm snapserver_0.10.0_armhf.deb
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
@@ -85,8 +96,8 @@ COPY "$SOURCEFOLDER/app" ./
 # Compile coffee
 RUN ./node_modules/.bin/coffee -c ./src
 
-# Disable haproxy service - we will manually start it later
-RUN systemctl disable haproxy
+# Disable haproxy and snapcast services - we will manually start them later
+RUN systemctl disable haproxy && systemctl disable snapclient && systemctl disable snapserver
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on

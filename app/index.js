@@ -2,6 +2,7 @@
     const fs = require('fs');
     const ini = require('ini');
     const exec = require('child_process').exec;
+    const replacefile = require('replacefile');
     const chalk = require("chalk");
     const request = require('request');
     const display = require(__dirname + '/libs/ledmatrix/index.js');
@@ -33,20 +34,41 @@
     mopidy.youtube.enabled = (process.env.MOPIDY_YOUTUBE_ENABLED == null) ? "false" : process.env.MOPIDY_YOUTUBE_ENABLED;
 
     fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
-    console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
     display.init(() => {
         'use strict';
         display.image(display.presets.splash);
     });
-    exec('systemctl start mopidy', (error, stdout, stderr) => {
+    console.log(chalk.cyan('starting Snapclient'));
+    exec('systemctl start snapclient', (error, stdout, stderr) => {
         'use strict';
         if (error) {
             console.log(chalk.red(`exec error: ${error}`));
             return;
         }
-        console.log(chalk.green(`stdout: ${stdout}`));
-        console.log(chalk.red(`stderr: ${stderr}`));
     });
+    if (process.env.SNAPCAST_CLIENT != "1") {
+        display.init(() => {
+            'use strict';
+            display.image(display.presets.splash);
+        });
+        exec('systemctl start snapserver', (error, stdout, stderr) => {
+            'use strict';
+            if (error) {
+                console.log(chalk.red(`exec error: ${error}`));
+                return;
+            }
+            replacefile.replace('/etc/mopidy/mopidy.conf', /"/g, '')
+                .then(() => {
+                    console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
+                    exec('mopidy --config /etc/mopidy/mopidy.conf', (error, stdout, stderr) => {
+                        if (error) {
+                            console.log(chalk.red(`exec error: ${error}`));
+                            return;
+                        }
+                    });
+                });
+        });
+    }
 
     setInterval(function keepalive() {
         'use strict';

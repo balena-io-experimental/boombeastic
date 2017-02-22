@@ -1,6 +1,6 @@
 # BoomBeastic mini
 
-A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
+A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy) and [SnapCast](https://github.com/badaix/snapcast)!
 
 ## Background
 *__You can read about the making of the boombeastic and see more photos [here](https://resin.io/blog/the-making-of-boombeastic/)__*
@@ -49,6 +49,7 @@ MOPIDY_SOUNDCLOUD_ENABLED | `false` | if set `true` loads the [SoundCloud extens
 MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
 MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https://github.com/resin-io/resin-wifi-connect) spawns if no known WiFi networks are found in order to expose WiFi configuration
+SNAPCAST_CLIENT | `none` | if set to `1` configures the boombeastic as a snapcast client (if != `1` the boombeastic acts as a snapcast server)
 
 ## Videos
 

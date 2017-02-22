@@ -1,63 +1,64 @@
 {
-    "name": "boombeastic",
-    "version": "0.3.0",
-    "description": "A Raspberry Pi Zero based smart fleet of connected speakers!",
-    "main": "index.js",
-    "directories": {
-        "doc": "docs"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/resin-io-playground/boombeastic.git"
-    },
-    "keywords": [
-        "resin",
-        "io",
-        "boom",
-        "bastic",
-        "beastic",
-        "beast",
-        "box",
-        "speaker",
-        "audio",
-        "sound",
-        "dac",
-        "rpi",
-        "raspberry",
-        "zero",
-        "led",
-        "matrix",
-        "sync",
-        "multi",
-        "room"
-    ],
-    "author": "Carlo Maria Curinga <carlo@resin.io>",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/resin-io-playground/boombeastic/issues"
-    },
-    "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
-    "jshintConfig": {
-        "esnext": true,
-        "strict": true
-    },
-    "dependencies": {
-        "8x8matrix": "0.0.1",
-        "chalk": "^1.1.3",
-        "debug": "^2.2.0",
-        "i2c": "^0.2.3",
-        "ini": "^1.3.4",
-        "random-bool": "^1.0.2",
-        "random-int-array": "^1.0.0",
-        "request": "^2.72.0",
-        "bluebird": "^3.4.1",
-        "body-parser": "^1.15.2",
-        "bower": "^1.7.9",
-        "coffee-script": "~1.9.3",
-        "dbus": "^0.2.19",
-        "express": "^4.14.0"
-    }
+  "name": "boombeastic",
+  "version": "0.3.0",
+  "description": "A Raspberry Pi Zero based smart fleet of connected speakers!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-playground/boombeastic.git"
+  },
+  "keywords": [
+    "resin",
+    "io",
+    "boom",
+    "bastic",
+    "beastic",
+    "beast",
+    "box",
+    "speaker",
+    "audio",
+    "sound",
+    "dac",
+    "rpi",
+    "raspberry",
+    "zero",
+    "led",
+    "matrix",
+    "sync",
+    "multi",
+    "room"
+  ],
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/boombeastic/issues"
+  },
+  "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
+  "jshintConfig": {
+    "esnext": true,
+    "strict": true
+  },
+  "dependencies": {
+    "8x8matrix": "0.0.1",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "chalk": "^1.1.3",
+    "coffee-script": "~1.9.3",
+    "dbus": "^0.2.19",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "i2c": "^0.2.3",
+    "ini": "^1.3.4",
+    "random-bool": "^1.0.2",
+    "random-int-array": "^1.0.0",
+    "replacefile": "^1.0.0",
+    "request": "^2.72.0"
+  }
 }
