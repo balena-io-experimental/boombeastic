@@ -52,8 +52,8 @@ PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https
 
 ## Services
 
-* `http://<boombeasticIP>` or <RESIN-PUBLIC-URL>=> Mopidy frontend
-* `http://<boombeasticIP>/emoji/` => Emoji GUI
+* `http://<boombeasticIP>` or `<resinPublicUrl>` => Mopidy frontend
+* `http://<boombeasticIP>/emoji/` or `or <resinPublicUrl>/emoji/` => Emoji GUI
 * `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
 
 ## Videos
