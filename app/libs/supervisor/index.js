@@ -34,7 +34,7 @@
         callback();
     };
 
-    process.on('SIGINT', () => {
+    process.on('SIGTERM', () => {
         'use strict';
         self.emit('status', 'Stopping');
         setTimeout(() => {
