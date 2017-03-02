@@ -4,7 +4,7 @@
     const matrix = require(__dirname + '/libs/ht16k33.js');
     const randomIntArray = require('random-int-array');
     const debug = require('debug')('display');
-
+    let self;
     let display = function() {
         "use strict";
         if (!(this instanceof display)) return new display();
@@ -133,7 +133,7 @@
         };
         this.blinkToggle = 0;
         this.randomImage = [];
-
+        self = this;
     };
 
     display.prototype.init = function() {
@@ -142,7 +142,6 @@
     };
     display.prototype.image = function(img) {
         "use strict";
-        let self = this;
         if (self.blinking) {
             clearInterval(self.blinking);
             self.image(self.presets.blank);
@@ -170,7 +169,6 @@
     };
     display.prototype.random = function() {
         "use strict";
-        let self = this;
         if (self.blinking) {
             clearInterval(self.blinking);
             self.image(self.presets.blank);

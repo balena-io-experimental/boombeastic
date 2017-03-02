@@ -12,7 +12,7 @@
     const bodyParser = require("body-parser");
     const _ = require('lodash');
     const app = express();
-
+    let self;
 
     errorHandler = (err, req, res, next) => {
         'use strict';
@@ -40,12 +40,12 @@
         'use strict';
         if (!(this instanceof server)) return new server();
         this.port = parseInt(process.env.WEB_SERVER_PORT) || 8888;
+        self = this;
     };
     util.inherits(server, EventEmitter);
 
     server.prototype.start = function(callback) {
         'use strict';
-        let self = this;
 
         app.use(serveStatic(__dirname + '/public', {
             'index': ['index.html']
