@@ -15,7 +15,7 @@ mkdir /data/mopidy/playlists >/dev/null 2>&1 || true
 mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 
 # Start resin-wifi-connect
-node /usr/src/app/wifi_connect.js
+node /usr/src/app/wifi_connect.js || true
 printf "Checking if we are connected to the internet via a google ping...\n\n"
 wget --spider http://google.com 2>&1
 if [ $? -eq 0 ]; then

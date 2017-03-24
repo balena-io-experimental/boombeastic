@@ -1,7 +1,7 @@
 #!/bin/env node
 
 {
-    const display = require(__dirname + '/libs/display.js');
+    const display = require(__dirname + '/libs/ledmatrix/index.js');
     const debug = require('debug')('wificonnect');
 
     display.init(() => {
