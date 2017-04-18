@@ -2,8 +2,8 @@
 
 Name | Manufacturer/Publisher | Link | Qty
 ------------ | ------------- | ------------ | -------------
-3d printed front part | Resin.io | [Thingiverse]()| 1
-3d printed rear part | Resin.io | [Thingiverse]()| 1
+3d printed front part | Resin.io | [Thingiverse](http://www.thingiverse.com/thing:2257336/#files)| 1
+3d printed rear part | Resin.io | [Thingiverse](http://www.thingiverse.com/thing:2257336/#files)| 1
 Adafruit I2S 3W Stereo Speaker Bonnet for Raspberry Pi | Adafruit | [Adafruit](https://www.adafruit.com/product/3346) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-stereo-speaker-bonnet-for-raspberry-pi-mini-kit) | 1
 Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
 Raspberry Pi 3 model B | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/3055) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-3) | 1
