@@ -21,22 +21,8 @@ wget --spider http://google.com 2>&1
 if [ $? -eq 0 ]; then
 	printf "\nconnected to internet, skipping wifi-connect\n\n"
 else
-	if [ ! -f /data/network.config ]; then
-		printf "\nnot connected, starting wifi-connect\n\n"
-		node src/app.js
-	else
-		printf "\nnot connected, but found user configuration in /data - applying...\n\n"
-		cp /data/network.config /host/var/lib/connman/network.config
-	  sleep 20;
-	  printf "Checking again if we are connected to the internet via a google ping...\n\n"
-	  wget --spider http://google.com 2>&1
-	  if [ $? -eq 0 ]; then
-	    printf "\nconnected to internet, skipping wifi-connect\n\n"
-	  else
-			printf "\nnot connected, starting wifi-connect\n\n"
-	    node src/app.js
-	  fi
-	fi
+	printf "\nnot connected, starting wifi-connect\n\n"
+	node src/app.js
 fi
 
 # Start haproxy

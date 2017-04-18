@@ -120,6 +120,17 @@
                 0, 0, 0, 1, 1, 0, 0, 0,
             ],
 
+            "justboom": [
+                1, 1, 1, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 1, 1, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 1, 1, 0,
+                0, 0, 1, 0, 1, 0, 0, 1,
+                0, 0, 0, 0, 0, 0, 0, 1,
+                0, 0, 1, 0, 1, 1, 1, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+            ],
+
             "blank": [
                 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0,
@@ -146,8 +157,7 @@
             clearInterval(self.blinking);
             self.image(self.presets.blank);
         }
-        matrix.writeArray(img.reverse());
-        img.reverse();
+        matrix.writeArray(img);
     };
     display.prototype.startBlink = function(img, interval) {
         'use strict';

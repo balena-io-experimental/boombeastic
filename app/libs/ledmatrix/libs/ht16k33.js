@@ -122,7 +122,7 @@
         for (var i in self.write_buffer) {
             self.wire.write(Buffer([i, self.write_buffer[i]]), (err) => {
                 if (err) {
-
+                  console.log(err);
                 }
             });
         }
