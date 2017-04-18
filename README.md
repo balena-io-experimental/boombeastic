@@ -19,11 +19,11 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 #### rpi0 version
 please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/assembly.md)
 
-## Stereo
+# BoomBeastic stereo
 #### rpi2/2+/3 version
 please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/stereo/rpi3/bom.md)
 
-## Getting started
+# Getting started
 
 **this application is compatible with resinOS 2.0+**
 
