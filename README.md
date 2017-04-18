@@ -6,6 +6,7 @@ A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.co
 *__You can read about the making of the boombeastic and see more photos [here](https://resin.io/blog/the-making-of-boombeastic/)__*
 ## Parts list
 
+## Mini
 #### rpi2/2+/3 version
 please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/bom.md)
 #### rpi0 version
@@ -18,14 +19,21 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 #### rpi0 version
 please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/assembly.md)
 
+## Stereo
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/stereo/rpi3/bom.md)
+
 ## Getting started
 
+**this application is compatible with resinOS 2.0+**
+
 - Sign up on [resin.io](https://dashboard.resin.io/signup)
-- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new RPI zero application called `boombeasticmini`
+- go throught the [getting started guide](http://docs.resin.io/raspberrypi/nodejs/getting-started/) and create a new Raspberry Pi application called `boombeastic`
 - clone this repository to your local workspace
 - set these variables in the `Fleet Configuration` application side tab
 
   - `RESIN_HOST_CONFIG_dtoverlay` = `hifiberry-dac`
+  - `RESIN_HOST_CONFIG_device_tree_overlay` = `i2s-mmap`
 
 - add the _resin remote_ to your local workspace using the useful shortcut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
 - `git push resin master`
@@ -59,11 +67,16 @@ PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https
 ## Videos
 
 * [YouTube 1](https://www.youtube.com/watch?v=EnLgmW8kyis)
+* [YouTube 2](https://youtu.be/pKvJKaCDQW8)
 * [Vine 1](https://vine.co/v/5g71nzHwXvr)
 
 ## Pictures
 
 ![v1_rpi3_1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi3/photos/IMG_20160929_163629.jpg)
+
+---
+
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/stereo/photos/IMG_20170407_133846.jpg)
 
 ---
 

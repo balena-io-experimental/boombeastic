@@ -23,7 +23,9 @@ RUN apt-get update && apt-get install -y \
   alsa-utils \
   gstreamer1.0-alsa \
   gstreamer1.0-plugins-bad \
+  gstreamer1.0-plugins-good \
   gstreamer1.0-plugins-ugly \
+  gstreamer1.0-tools \
   gstreamer1.0-libav \
   haproxy \
   mopidy-spotify \
@@ -39,8 +41,8 @@ RUN apt-get update && apt-get install -y \
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
 
-# Update setup-tools
-RUN curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+# Update setup-tools and other deps
+RUN pip install --upgrade pip packaging pyparsing setuptools
 
 # Install Mopidy extensions
 RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient Mopidy-Local-SQLite Mopidy-ALSAMixer
@@ -77,8 +79,8 @@ COPY ./app ./
 # Compile coffee
 RUN ./node_modules/.bin/coffee -c ./src
 
-# Disable haproxy service - we will manually start it later
-RUN systemctl disable haproxy
+# Disable haproxy and mopidy services - we will manually start it later
+RUN systemctl disable haproxy mopidy
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on
