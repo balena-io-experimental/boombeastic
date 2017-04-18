@@ -76,7 +76,7 @@ PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https
 
 ---
 
-![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/stereo/photos/IMG_20170407_133846.jpg)
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/stereo/rpi3/photos/IMG_20170407_133846.jpg)
 
 ---
 
