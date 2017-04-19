@@ -3,8 +3,6 @@
 {
     const display = require(__dirname + '/libs/ledmatrix/index.js');
 
-    display.init(() => {
-        'use strict';
-        display.image(display.presets.wifi);
-    });
+    display.init();
+    display.image(display.presets.wifi);
 }
