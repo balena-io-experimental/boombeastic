@@ -34,6 +34,7 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 
   - `RESIN_HOST_CONFIG_dtoverlay` = `hifiberry-dac`
   - `RESIN_HOST_CONFIG_device_tree_overlay` = `i2s-mmap`
+  - `RESIN_HOST_CONFIG_dtparam` = `audio=off`
 
 - add the _resin remote_ to your local workspace using the useful shortcut in the dashboard UI ![remoteadd](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/gitresinremote.png)
 - `git push resin master`
