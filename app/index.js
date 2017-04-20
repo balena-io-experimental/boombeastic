@@ -18,7 +18,7 @@
   // mpd config
   mopidy.mpd.port = parseInt(process.env.MOPIDY_MPD_PORT) || 6680;
   // audio config
-  mopidy.audio.mixer_volume = parseInt(process.env.MOPIDY_AUDIO_MIXER_VOLUME) || 50;
+  mopidy.audio.mixer_volume = parseInt(process.env.MOPIDY_AUDIO_MIXER_VOLUME) || 20;
   // Google Play Music config
   mopidy.gmusic.enabled = process.env.MOPIDY_GMUSIC_ENABLED === '1' ? true : false;
   mopidy.gmusic.username = process.env.MOPIDY_GMUSIC_USERNAME || "none";

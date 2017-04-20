@@ -1,6 +1,6 @@
 {
   "name": "boombeastic",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A Raspberry Pi based smart fleet of connected speakers!",
   "main": "index.js",
   "directories": {
