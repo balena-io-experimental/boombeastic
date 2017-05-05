@@ -2,6 +2,7 @@
   const fs = require('fs');
   const ini = require('ini');
   const exec = require('child_process').exec;
+  const spawn = require('child_process').spawn;
   const chalk = require("chalk");
   const request = require('request');
   const display = require(__dirname + '/libs/ledmatrix/index.js');
@@ -35,6 +36,7 @@
   mopidy.youtube.enabled = process.env.MOPIDY_YOUTUBE_ENABLED === '1' ? true : false;
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
+  fs.writeFileSync('/etc/shairport-sync.conf', 'general =\n{\nname = "BoomBeastic-' + process.env.RESIN_DEVICE_UUID.substring(0, 7) + '";\n};');
   console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
   display.init(() => {
     'use strict';
@@ -46,9 +48,26 @@
       console.log(chalk.red(`exec error: ${error}`));
       return;
     }
-    console.log(chalk.green(`stdout: ${stdout}`));
-    console.log(chalk.red(`stderr: ${stderr}`));
   });
+
+  console.log(chalk.cyan('starting shairport-sync'));
+  const shairport = spawn('shairport-sync');
+
+  shairport.stdout.on('data', (data) => {
+    'use strict';
+    console.log(`shairport: ${data}`);
+  });
+
+  shairport.stderr.on('data', (data) => {
+    'use strict';
+    console.log(`shairport: ${data}`);
+  });
+
+  shairport.on('close', (code) => {
+    'use strict';
+    console.log(`shairport process exited with code ${code}`);
+  });
+
 
   supervisor.start(500, () => {
     'use strict';
