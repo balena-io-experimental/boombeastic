@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:6.9
+FROM resin/%%RESIN_MACHINE_NAME%%-node:6
 
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
@@ -6,6 +6,7 @@ RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O
 # Install apt deps
 RUN apt-get update && apt-get install -y \
   apt-utils \
+  automake \
   libasound2-dev \
   libffi-dev \
   libssl-dev \
@@ -18,6 +19,12 @@ RUN apt-get update && apt-get install -y \
   avahi-daemon \
   avahi-discover \
   libnss-mdns \
+  autoconf \
+  libtool \
+  libdaemon-dev \
+  libpopt-dev \
+  libconfig-dev \
+  libavahi-client-dev \
   mopidy \
   alsa-base \
   alsa-utils \
@@ -79,8 +86,14 @@ COPY ./app ./
 # Compile coffee
 RUN ./node_modules/.bin/coffee -c ./src
 
+# Install shairport
+RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync \
+  && cd shairport-sync && autoreconf -i -f \
+  && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
+  && make install && cd ../ && rm -rf shairport-sync
+
 # Disable haproxy and mopidy services - we will manually start it later
-RUN systemctl disable haproxy mopidy
+RUN systemctl disable haproxy mopidy shairport-sync
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on
