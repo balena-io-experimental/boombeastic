@@ -14,6 +14,9 @@ mkdir /data/mopidy/media >/dev/null 2>&1 || true
 mkdir /data/mopidy/playlists >/dev/null 2>&1 || true
 mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 
+# Ensure mopidy folders are accessible to the mopidy user
+chown -R mopidy:audio /data/mopidy
+
 # Start resin-wifi-connect
 node /usr/src/app/wifi_connect.js || true
 sleep 1 # Delay needed to avoid DBUS introspection errors
