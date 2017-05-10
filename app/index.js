@@ -68,6 +68,24 @@
     console.log(`shairport process exited with code ${code}`);
   });
 
+  console.log(chalk.cyan('starting node-file-manager'));
+  const filemanager = spawn('node-file-manager', ['-p', '8000', '-d', '/data/mopidy/media']);
+
+  filemanager.stdout.on('data', (data) => {
+    'use strict';
+    console.log(`filemanager: ${data}`);
+  });
+
+  filemanager.stderr.on('data', (data) => {
+    'use strict';
+    console.log(`filemanager: ${data}`);
+  });
+
+  filemanager.on('close', (code) => {
+    'use strict';
+    console.log(`filemanager process exited with code ${code}`);
+  });
+
 
   supervisor.start(500, () => {
     'use strict';
