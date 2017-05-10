@@ -62,6 +62,7 @@ PORTAL_SSID | `ResinAP` | the name of the Access Point that [wifi-connect](https
 ## Services
 
 * `http://<boombeasticIP>` or `<resinPublicUrl>` => Mopidy frontend
+* `http://<boombeasticIP>/files/` => file manager server ( allows you to manage your local library )
 * `http://<boombeasticIP>/emoji/` or `or <resinPublicUrl>/emoji/` => Emoji GUI
 * `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
 
