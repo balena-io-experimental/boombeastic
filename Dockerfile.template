@@ -87,7 +87,7 @@ COPY ./app ./
 RUN ./node_modules/.bin/coffee -c ./src
 
 # Install shairport
-RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync \
+RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1 \
   && cd shairport-sync && autoreconf -i -f \
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
   && make install && cd ../ && rm -rf shairport-sync
