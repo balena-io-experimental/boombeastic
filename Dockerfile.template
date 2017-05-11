@@ -48,11 +48,14 @@ RUN apt-get update && apt-get install -y \
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
 
-# Update setup-tools and other deps
-RUN pip install --upgrade pip packaging pyparsing setuptools
-
-# Install Mopidy extensions
-RUN pip install mopidy-gmusic Mopidy-YouTube mopidy-musicbox-webclient Mopidy-Local-SQLite Mopidy-ALSAMixer
+# Update setup-tools and install mopidy extensions
+RUN pip install --upgrade pip packaging pyparsing setuptools \
+  && pip install \
+    mopidy-gmusic \
+    Mopidy-YouTube \
+    mopidy-musicbox-webclient \
+    Mopidy-Local-SQLite \
+    Mopidy-ALSAMixer
 
 # Deploy haproxy config
 COPY ./Dockerbin/haproxy.cfg /etc/haproxy/haproxy.cfg
