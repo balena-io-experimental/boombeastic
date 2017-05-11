@@ -106,6 +106,9 @@
           break;
         case "Stopping":
           display.image(display.presets.stop);
+          setTimeout(() => {
+            process.exit(1);
+          }, 1000);
           break;
       }
     });
