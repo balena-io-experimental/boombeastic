@@ -74,7 +74,8 @@ COPY ./app/package.json ./
 
 # Install npm modules for the application
 RUN JOBS=MAX npm install --unsafe-perm --production \
-	&& npm install --unsafe-perm -g node-file-manager && npm cache clean
+	&& npm install --unsafe-perm -g node-file-manager \
+  && npm cache clean && rm -rf /tmp/*
 
 # Move bower.json to filesystem
 COPY ./app/bower.json ./app/.bowerrc /usr/src/app/
