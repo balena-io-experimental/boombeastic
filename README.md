@@ -1,12 +1,14 @@
 # BoomBeastic mini
 
 A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
+**this application is compatible with resinOS 2.0+**
 
 ## Background
 *__You can read about the making of the boombeastic and see more photos [here](https://resin.io/blog/the-making-of-boombeastic/)__*
 ## Parts list
 These are the parts you'll need to acquire to assemble the BoomBeastic
 
+## Mini
 #### rpi2/2+/3 version
 [Bill of materials](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/bom.md)
 #### rpi0 version
@@ -32,6 +34,9 @@ Wire stripper or knife
 `cd boombeastic`
 - set these variables in the `Fleet Configuration` application side tab
   - `RESIN_HOST_CONFIG_dtoverlay` = `hifiberry-dac`
+  - `RESIN_HOST_CONFIG_device_tree_overlay` = `i2s-mmap`
+  - `RESIN_HOST_CONFIG_dtparam` = `audio=off`
+
 ![resin.io fleet configuration screen](img/FleetConfig.png)
 
 - add the _resin remote_ to your local workspace using the useful shortcut in the dashboard UI.  Copy and paste the line from the top of your application page into a terminal and run it.
@@ -77,17 +82,17 @@ If you have an account for a service you want to use with your Boombeastic, set 
 If you have questions about logging in, because you use a different service to access it, you’ll need to check Mopidy’s documentation for the service. For instance, if you want to know how to access your Spotify account with a Facebook login, you’ll go to the [Spotify extension readme](https://github.com/mopidy/mopidy-spotify)
 
 #### Google Music
-Environment Variable | Value
+Environment Variable | Value | Description
 ---------------------------  | --------
-MOPIDY_GMUSIC_ENABLED | `true`
-MOPIDY_GMUSIC_USERNAME | your Google username
-MOPIDY_GMUSIC_PASSWORD | your Google Play Music password (an [app password](https://support.google.com/accounts/answer/185833) is suggested as a best practice)
-MOPIDY_GMUSIC_ALL_ACCESS | `true` (if you have Google Music All Access); `false` (otherwise)
+MOPIDY_GMUSIC_ENABLED | `0` | if set `1` loads the [Google Play Music extension](https://github.com/mopidy/mopidy-gmusic)
+MOPIDY_GMUSIC_USERNAME | `none` | your Google username
+MOPIDY_GMUSIC_PASSWORD | `none` | your Google Play Music password (an [app password](https://support.google.com/accounts/answer/185833) is suggested as a best practice)
+MOPIDY_GMUSIC_ALL_ACCESS | `0` | if set `1` configures the extension for handling the All Access subscription
 
 #### Spotify
 Environment Variable | Description
 ------------ | -------------
-MOPIDY_SPOTIFY_ENABLED | `false` | if set `true` loads the [Spotify extension](https://github.com/mopidy/mopidy-spotify)
+MOPIDY_SOUNDCLOUD_ENABLED | `0` | if set `1` loads the [SoundCloud extension](https://github.com/mopidy/mopidy-soundcloud)
 MOPIDY_SPOTIFY_USERNAME | `none` | your Spotify username
 MOPIDY_SPOTIFY_PASSWORD | `none` | your Spotify password
 
@@ -95,14 +100,21 @@ MOPIDY_SPOTIFY_PASSWORD | `none` | your Spotify password
 Environment Variable | Description
 ------------ | -------------
 MOPIDY_SOUNDCLOUD_ENABLED | `true`
-MOPIDY_SOUNDCLOUD_AUTH_TOKEN | your SoundCloud [token](https://www.mopidy.com/authenticate/)
+MOPIDY_SOUNDCLOUD_AUTH_TOKEN | `none` | your SoundCloud [token](https://www.mopidy.com/authenticate/)
 
 #### Youtube
 Environment Variable | Description
 ------------ | -------------
-MOPIDY_YOUTUBE_ENABLED | `false` | if set `true` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
+MOPIDY_YOUTUBE_ENABLED | `0` | if set `1` loads the [YouTube extension](https://github.com/mopidy/mopidy-youtube)
 
 *Note: Mopidy [has other services to use? Point to their vars?] [drives the boombeastic, so it’s a great place to OSS it up.]
+
+## Services
+
+* `http://<boombeasticIP>` or `<resinPublicUrl>` => Mopidy frontend
+* `http://<boombeasticIP>/files/` => file manager server ( allows you to manage your local library )
+* `http://<boombeasticIP>/emoji/` or `or <resinPublicUrl>/emoji/` => Emoji GUI
+* `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
 
 ## Building the rig
 *Notes: See the bill of materials for images of each component part. The wood layers have numbers in their upper left corner.* 
@@ -220,14 +232,20 @@ please refer to [this link](https://github.com/resin-io-playground/boombeastic/b
 ### Footnotes
 
 <sup>1</sup> This documentation is assuming you're familiar with the terminal, and have git installed.
+
 ## Videos
 
 * [YouTube 1](https://www.youtube.com/watch?v=EnLgmW8kyis)
+* [YouTube 2](https://youtu.be/pKvJKaCDQW8)
 * [Vine 1](https://vine.co/v/5g71nzHwXvr)
 
 ## Pictures
 
 ![v1_rpi3_1](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/mini/rpi3/photos/IMG_20160929_163629.jpg)
+
+---
+
+![v1_stereo](https://raw.githubusercontent.com/resin-io-playground/boombeastic/master/docs/v1/stereo/rpi3/photos/IMG_20170407_133846.jpg)
 
 ---
 

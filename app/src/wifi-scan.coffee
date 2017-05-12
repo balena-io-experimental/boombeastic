@@ -1,11 +1,11 @@
 Promise = require 'bluebird'
-{ exec } = require 'child_process'
-execAsync = Promise.promisify(exec)
+child_process = Promise.promisifyAll require 'child_process'
+_ = require 'lodash'
 
 config = require './config'
 
 exports.scanAsync = ->
-	execAsync("iw #{config.iface} scan ap-force")
+	child_process.execAsync("iw #{config.iface} scan ap-force")
 	.then (output) ->
 		bsss = {}
 		bss = null
@@ -33,5 +33,10 @@ exports.scanAsync = ->
 		for own bss, details of bsss
 			networks.push(details)
 
-		# sort by signal strength
-		return networks.sort((a, b) -> b.signal - a.signal)
+		# sort by signal strength and remove duplicates
+		networks = _(networks).orderBy('signal', 'desc').uniqBy('ssid').value()
+
+		return networks
+	.catch code: 240, (e) ->
+		Promise.delay(1000) # Delay needed to avoid `Command failed: iw wlan0 scan ap-force command failed: Device or resource busy (-16)`
+		.then(exports.scanAsync)

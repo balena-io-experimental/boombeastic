@@ -14,29 +14,19 @@ mkdir /data/mopidy/media >/dev/null 2>&1 || true
 mkdir /data/mopidy/playlists >/dev/null 2>&1 || true
 mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 
+# Ensure mopidy folders are accessible to the mopidy user
+chown -R mopidy:audio /data/mopidy
+
 # Start resin-wifi-connect
-node /usr/src/app/wifi_connect.js
+node /usr/src/app/wifi_connect.js || true
+sleep 1 # Delay needed to avoid DBUS introspection errors
 printf "Checking if we are connected to the internet via a google ping...\n\n"
 wget --spider http://google.com 2>&1
 if [ $? -eq 0 ]; then
-	printf "\nconnected to internet, skipping wifi-connect\n\n"
+  printf "\nconnected to internet, skipping wifi-connect\n\n"
 else
-	if [ ! -f /data/network.config ]; then
-		printf "\nnot connected, starting wifi-connect\n\n"
-		node src/app.js
-	else
-		printf "\nnot connected, but found user configuration in /data - applying...\n\n"
-		cp /data/network.config /host/var/lib/connman/network.config
-	  sleep 20;
-	  printf "Checking again if we are connected to the internet via a google ping...\n\n"
-	  wget --spider http://google.com 2>&1
-	  if [ $? -eq 0 ]; then
-	    printf "\nconnected to internet, skipping wifi-connect\n\n"
-	  else
-			printf "\nnot connected, starting wifi-connect\n\n"
-	    node src/app.js
-	  fi
-	fi
+  printf "\nnot connected, starting wifi-connect\n\n"
+  node src/app.js --clear=false
 fi
 
 # Start haproxy

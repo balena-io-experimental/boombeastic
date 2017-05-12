@@ -3,23 +3,23 @@ Promise = require 'bluebird'
 execAsync = Promise.promisify(exec)
 
 config = require './config'
-
 hostapd = require './hostapd'
 dnsmasq = require './dnsmasq'
-systemd = require './systemd'
+modprobe = require './modprobe'
 
 started = false
 
-exports.start = ->
+exports.start = (manager, device) ->
 	if started
 		return Promise.resolve()
 
 	started = true
 
-	console.log('Stopping connman..')
+	console.log('Starting hotspot')
 
-	systemd.stop('connman.service')
-	.delay(2000)
+	modprobe.hotspot(device)
+	.then ->
+		manager.stop()
 	.then ->
 		execAsync('rfkill unblock wifi')
 	.then ->
@@ -29,16 +29,23 @@ exports.start = ->
 		hostapd.start()
 	.then ->
 		dnsmasq.start()
+	.then ->
+		console.log('Started hotspot')
 
-exports.stop = ->
+exports.stop = (manager, device) ->
 	if not started
 		return Promise.resolve()
 
 	started = false
 
-	Promise.all [
-		hostapd.stop()
-		dnsmasq.stop()
-	]
+	console.log('Stopping hotspot')
+
+	modprobe.normal(device)
 	.then ->
-		systemd.start('connman.service')
+		hostapd.stop()
+	.then ->
+		dnsmasq.stop()
+	.then ->
+		manager.start()
+	.then ->
+		console.log('Stopped hotspot')

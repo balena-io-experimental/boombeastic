@@ -1,0 +1,16 @@
+# Mini V1 rpi2/2+/3 Parts list
+
+Name | Manufacturer/Publisher | Link | Qty
+------------ | ------------- | ------------ | -------------
+3d printed front part | Resin.io | [Thingiverse](http://www.thingiverse.com/thing:2257336/#files)| 1
+3d printed rear part | Resin.io | [Thingiverse](http://www.thingiverse.com/thing:2257336/#files)| 1
+Adafruit I2S 3W Stereo Speaker Bonnet for Raspberry Pi | Adafruit | [Adafruit](https://www.adafruit.com/product/3346) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-i2s-3w-stereo-speaker-bonnet-for-raspberry-pi-mini-kit) | 1
+Adafruit Mini 0.7" 8x8 LED Matrix w/I2C Backpack (yellow suggested) | Adafruit | [Adafruit](https://www.adafruit.com/products/871) / [Pimoroni](https://shop.pimoroni.com/products/adafruit-mini-8x8-led-matrix-w-i2c-backpack) | 1
+Raspberry Pi 3 model B | Raspberry Foundation | [Adafruit](https://www.adafruit.com/products/3055) / [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-3) | 1
+Micro SD card (at least 4GB and class 10), we recommend the [SanDisk Ultra] (https://www.sandisk.com/home/memory-cards/microsd-cards/ultra-microsd) | Amazon | [co.uk](https://www.amazon.co.uk/SanDisk-Ultra-MicroSDHC-Memory-Adapter/dp/B00M55C0VU) / [com](https://www.amazon.com/SanDisk-Class-Micro-Adapter-SDSDQUA-008G-A11A/dp/B0085EG6OW/) / [it](https://www.amazon.it/SanDisk-Imaging-Memoria-MicroSDHC-Adattatore/dp/B00MBTKT6S) | 1
+Raspberry Pi Universal Power Supply (Black 2.5A Power Supply) | Raspberry Foundation/Adafruit |  [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-universal-power-supply) / [Adafruit](https://www.adafruit.com/products/1995) | 1
+5W 4 Ohm 65mm Full Range Speaker | Pimoroni/Vistatron |  [Pimoroni](https://shop.pimoroni.com/products/5w-4-ohm-65mm-full-range-speaker) / [Amazon](https://www.amazon.com/gp/product/B004GA0LFY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) | 2
+Female to Female Jumper Jerky | Pimoroni | [Pimoroni](https://shop.pimoroni.com/products/jumper-jerky) / [Adafruit](https://www.adafruit.com/products/1995) | 1
+M3x10mm Nylon Black Hex Screw and Nut Set (overkill, but the easiest and cheapest way right now) | Amazon | [co.uk](https://www.amazon.co.uk/260pcs-Black-Spacers-Stand-off-Assortment/dp/B01GVD146I/) / [com](https://www.amazon.com/Spacer-Standoff-Varied-Length-Assortment/dp/B01N1GOT1S/) / [it](https://www.amazon.it/Xcellent-Global-assortito-rondelle-esagonali/dp/B01MDS2LL4/) | 1
+M2.5 / M2 screws and nuts pack (overkill, but the easiest and cheapest way right now) | Amazon | [co.uk](https://www.amazon.co.uk/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B01DJYXSHU/ref=sr_1_1?ie=UTF8&qid=1467796678&sr=8-1&keywords=M2+M3+nylon) / [com](https://www.amazon.com/Spacers-Stand-off-Plastic-Accessories-Assortment/dp/B00MMWDYI4/ref=sr_1_8?ie=UTF8&qid=1467796552&sr=8-8&keywords=M2+nylon+nut&refinements=p_85%3A2470955011) / [it](https://www.amazon.it/esagonali-distanziali-Kit-accessori-assortiti-plastica/dp/B01DJYXSHU/ref=sr_1_3?ie=UTF8&qid=1467796951&sr=8-3&keywords=M2+M3+nylon) | 1
+Bi-polar electric wires | Amazon | [co.uk](https://www.amazon.co.uk/sourcingmap-Indoor-Outdoor-Insulated-Electrical/dp/B01C378H98/) / [com](https://www.amazon.com/20ga-Red-Black-Hookup-Wire/dp/B001JT1CEE/) / [it](https://www.amazon.it/sourcingmap-Interni-Esterni-isolato-elettrico/dp/B01B27MNTU/) | 1
