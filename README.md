@@ -28,7 +28,7 @@ Wire stripper or knife
 - Create a new resin.io application to manage your Boombeastic
 ![The resin.io application creation form](img/CreateApp.png)
 - Add SSH key
-  - More detailed information about the application creation process is available in the [resin.io getting started guide](http://docs.resin.io/raspberrypi3/nodejs/getting-started/) and create a new Raspberry Pi zero or Raspberry Pi 2/2+/3 application (depending on what Raspberry Pi you have). Name this application whatever you want, e.g. `BoombeasticMini`.
+  - More detailed information about the application creation process (including adding a SSH key) is available in the [resin.io getting started guide](http://docs.resin.io/raspberrypi3/nodejs/getting-started/) and create a new Raspberry Pi zero or Raspberry Pi 2/2+/3 application (depending on what Raspberry Pi you have). Name this application whatever you want, e.g. `BoombeasticMini`.
 - clone this repository to your local system and open up the Boombeastic project by pasting the following into a terminal<sup>1</sup>:
 `git clone https://github.com/resin-io-projects/boombeastic`
 `cd boombeastic`
