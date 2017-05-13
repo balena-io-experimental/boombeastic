@@ -1,4 +1,4 @@
-# BoomBeastic mini
+# BoomBeastic
 
 A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
 **this application is compatible with resinOS 2.0+**
@@ -13,6 +13,10 @@ These are the parts you'll need to acquire to assemble the BoomBeastic
 [Bill of materials](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi3/bom.md)
 #### rpi0 version
 [Bill of materials](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/mini/rpi0/bom.md)
+
+# Stereo
+#### rpi2/2+/3 version
+please refer to [this link](https://github.com/resin-io-playground/boombeastic/blob/master/docs/v1/stereo/rpi3/bom.md)
 
 ### Other items you’ll need
 Soldering iron
@@ -58,7 +62,7 @@ Don't worry!  This is normal and just a security precaution before pushing code 
 
 After the OTA is completed, you can test the connection by pointing your browser to `your_boombeastic_ip:80` (get the device IP from the resin dashboard).
 
-## Configuring your Boombeastic 
+## Configuring your Boombeastic
 Next you’re going to hook up your services and make any changes to the default variables.
 
 ### Boombeastic Configuration Values
@@ -117,11 +121,11 @@ MOPIDY_YOUTUBE_ENABLED | `0` | if set `1` loads the [YouTube extension](https://
 * `http://<boombeasticIP>/mpd/` => MPD server ( you can use any MPD client )
 
 ## Building the rig
-*Notes: See the bill of materials for images of each component part. The wood layers have numbers in their upper left corner.* 
+*Notes: See the bill of materials for images of each component part. The wood layers have numbers in their upper left corner.*
 
 Step 1. Start with the backplate, wooden layer 0 :)
 
-You’ll see the 0 etched into the top left of the wood layer. You’re going to add six nylon hex nuts screws (white plastic maybe link to pic) to the underside of the wood layer, and attach the nuts to the topside, screwing them down all the way. 
+You’ll see the 0 etched into the top left of the wood layer. You’re going to add six nylon hex nuts screws (white plastic maybe link to pic) to the underside of the wood layer, and attach the nuts to the topside, screwing them down all the way.
 
 *Note: the only holes that won’t have screws bolts are the four most outer corners.*
 
@@ -135,7 +139,7 @@ Step 2. Place the Pi onto the backplate, over the four screws near the cutout. S
 
 Step 3. Solder ALL THE THINGS
 
-3a. Solder the screw terminal block and pins to 12S amp breakout. The screw terminal block and pins come with the amp breakout. 
+3a. Solder the screw terminal block and pins to 12S amp breakout. The screw terminal block and pins come with the amp breakout.
 
 Start with the screw terminal block -- they look like a tiny box with two pins. Orient the terminals so they are on the same side of the wood layer as the other components, at the edge of the wood layer (so you can access them later). Solder the pins.
 
@@ -160,7 +164,7 @@ Step 7. Sit the LED Backpack over the four white nylon hex nuts, with the pins y
 
 Step 8. Align the speaker over the circular cutout in the faceplate, with the leads facing the closer edge of the back of the faceplate. Insert four nylon screws through the front of the faceplate and speaker frame. Use four black nylon nuts to tighten down.
 
-Step 9. Wire the speaker. 
+Step 9. Wire the speaker.
 Remove the red and brown wires from the jumper jerky to use as speaker wire. You’ll need to remove the jumpers from each end and strip the wires. If you have speaker wire, you can use that instead.
 Solder dark wire to the – thingie on the speaker
 Solder red wire to the + thingie on the speaker
