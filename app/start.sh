@@ -26,7 +26,7 @@ if [ $? -eq 0 ]; then
   printf "\nconnected to internet, skipping wifi-connect\n\n"
 else
   printf "\nnot connected, starting wifi-connect\n\n"
-  node src/app.js --clear=false
+  node src/app.js --clear=true
 fi
 
 # Start haproxy
