@@ -1,6 +1,7 @@
 # BoomBeastic
 
 A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
+
 **this application is compatible with resinOS 2.0+**
 
 ![BoomBeastic mini veneew walnut](https://pbs.twimg.com/media/C_rNlnlUQAAF6lY.jpg:small)
