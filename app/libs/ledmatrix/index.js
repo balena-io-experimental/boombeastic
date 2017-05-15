@@ -149,10 +149,16 @@
 
   display.prototype.init = function() {
     "use strict";
+    if (parseInt(process.env.NOLEDMATRIX)) {
+      return true;
+    }
     matrix.init();
   };
   display.prototype.image = function(img) {
     "use strict";
+    if (parseInt(process.env.NOLEDMATRIX)) {
+      return true;
+    }
     if (self.blinking) {
       clearInterval(self.blinking);
       self.image(self.presets.blank);
@@ -161,6 +167,9 @@
   };
   display.prototype.startBlink = function(img, interval) {
     'use strict';
+    if (parseInt(process.env.NOLEDMATRIX)) {
+      return true;
+    }
     self.blinking = setInterval(() => {
       self.blinkToggle = !self.blinkToggle;
       if (self.blinkToggle) {
@@ -172,6 +181,9 @@
   };
   display.prototype.stopBlink = function(img, interval) {
     'use strict';
+    if (parseInt(process.env.NOLEDMATRIX)) {
+      return true;
+    }
     if (self.blinking) {
       clearInterval(self.blinking);
       self.image(self.presets.blank);
@@ -179,6 +191,9 @@
   };
   display.prototype.random = function() {
     "use strict";
+    if (parseInt(process.env.NOLEDMATRIX)) {
+      return true;
+    }
     if (self.blinking) {
       clearInterval(self.blinking);
       self.image(self.presets.blank);
