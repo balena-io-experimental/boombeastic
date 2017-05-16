@@ -39,7 +39,7 @@
     }
 
     // Set display brightness.
-    self.wire.write(Buffer([(self.brightness)]), (err) => {
+    self.wire.write(Buffer([0xE0 | self.brightness]), (err) => {
       debug(err);
     });
   };
