@@ -8,7 +8,7 @@
     'use strict';
     if (!(this instanceof ht16k33)) return new ht16k33();
     this.address = (process.env.LED_MATRIX_I2C_ADDRESS == null) ? 0x70 : parseInt(process.env.LED_MATRIX_I2C_ADDRESS);
-    this.brightness = (process.env.LED_MATRIX_BRIGHTNESS == null) ? 2 : parseInt(process.env.LED_MATRIX_BRIGHTNESS);
+    this.brightness = (process.env.LED_MATRIX_BRIGHTNESS == null) ? 1 : parseInt(process.env.LED_MATRIX_BRIGHTNESS);
     this.bus = (process.env.LED_MATRIX_I2C_BUS == null) ? '/dev/i2c-1' : process.env.LED_MATRIX_I2C_BUS;
     this.write_buffer = [];
     this.current_array = [];
