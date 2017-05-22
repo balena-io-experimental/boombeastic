@@ -1,5 +1,5 @@
 module.exports =
-	ssid: process.env.PORTAL_SSID or 'BoomBeastic-' + process.env.HOSTNAME
+	ssid: process.env.PORTAL_SSID or 'BoomBeastic-' + process.env.RESIN_DEVICE_UUID.substring(0, 7)
 	passphrase: process.env.PORTAL_PASSPHRASE
 	iface: process.env.PORTAL_INTERFACE or 'wlan0'
 	gateway: process.env.PORTAL_GATEWAY or '192.168.42.1'
