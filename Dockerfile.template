@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y \
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
 
 # Update setup-tools and install mopidy extensions
-RUN pip install --upgrade pip packaging pyparsing setuptools \
+RUN pip install --upgrade pip packaging pyparsing setuptools youtube-dl \
   && pip install \
     mopidy-gmusic \
     Mopidy-YouTube \
