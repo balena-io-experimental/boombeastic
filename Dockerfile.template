@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node
+FROM resin/%%RESIN_MACHINE_NAME%%-node:7
 
 # Add Mopidy sources
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
@@ -8,16 +8,16 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   python-dev \
   python-pip \
   git \
-  avahi-daemon \
-  avahi-discover \
-  libnss-mdns \
   autoconf \
+  automake \
   libtool \
   libdaemon-dev \
+  libasound2-dev \
   libpopt-dev \
   libconfig-dev \
+  avahi-daemon \
   libavahi-client-dev \
-  libasound2-dev \
+  libnss-mdns \
   mopidy \
   alsa-base \
   alsa-utils \

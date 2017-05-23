@@ -37,6 +37,8 @@
 
   fs.writeFileSync('/etc/mopidy/mopidy.conf', ini.stringify(mopidy));
   fs.writeFileSync('/etc/shairport-sync.conf', 'general =\n{\nname = "BoomBeastic-' + process.env.RESIN_DEVICE_UUID.substring(0, 7) + '";\n};');
+
+  // Mopidy
   console.log(chalk.cyan('starting Mopidy - HTTP port:' + mopidy.http.port + ' (proxy on port 80); MPD port:' + mopidy.mpd.port));
   display.init(() => {
     'use strict';
@@ -50,9 +52,9 @@
     }
   });
 
+  // Shairport
   console.log(chalk.cyan('starting shairport-sync'));
   const shairport = spawn('shairport-sync');
-
   shairport.stdout.on('data', (data) => {
     'use strict';
     console.log(`shairport: ${data}`);
@@ -68,9 +70,9 @@
     console.log(`shairport process exited with code ${code}`);
   });
 
+  // File Manager
   console.log(chalk.cyan('starting node-file-manager'));
   const filemanager = spawn('node-file-manager', ['-p', '8000', '-d', '/data/mopidy/media']);
-
   filemanager.stdout.on('data', (data) => {
     'use strict';
     console.log(`filemanager: ${data}`);
