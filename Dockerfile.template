@@ -1,30 +1,22 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:6
+FROM resin/%%RESIN_MACHINE_NAME%%-node:7
 
-# Add Mopidy sources
-RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - && wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list
-
-# Install apt deps
-RUN apt-get update && apt-get install -y \
-  apt-utils \
-  automake \
-  libasound2-dev \
-  libffi-dev \
-  libssl-dev \
+# Add Mopidy sources and install apt deps
+RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - &&  \
+wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list && \
+apt-get update && apt-get install -yq --no-install-recommends \
   python-dev \
   python-pip \
-  python-smbus \
-  python-imaging \
-  python-alsaaudio \
   git \
-  avahi-daemon \
-  avahi-discover \
-  libnss-mdns \
   autoconf \
+  automake \
   libtool \
   libdaemon-dev \
+  libasound2-dev \
   libpopt-dev \
   libconfig-dev \
+  avahi-daemon \
   libavahi-client-dev \
+  libnss-mdns \
   mopidy \
   alsa-base \
   alsa-utils \
@@ -43,19 +35,16 @@ RUN apt-get update && apt-get install -y \
   iw \
   libdbus-1-dev \
   libexpat-dev \
-  rfkill && rm -rf /var/lib/apt/lists/*
-
-# Enable haproxy
-RUN echo 'ENABLED=1' >> /etc/default/haproxy
+  rfkill && apt-get clean && rm -rf /var/lib/apt/lists/* && \
+echo 'ENABLED=1' >> /etc/default/haproxy
 
 # Update setup-tools and install mopidy extensions
-RUN pip install --upgrade pip packaging pyparsing setuptools youtube-dl \
+RUN pip install packaging pyparsing setuptools youtube-dl \
   && pip install \
     mopidy-gmusic \
     Mopidy-YouTube \
     mopidy-musicbox-webclient \
-    Mopidy-Local-SQLite \
-    Mopidy-ALSAMixer
+    Mopidy-Local-SQLite
 
 # Deploy haproxy config
 COPY ./Dockerbin/haproxy.cfg /etc/haproxy/haproxy.cfg
