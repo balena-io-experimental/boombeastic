@@ -39,6 +39,7 @@ apt-get update && apt-get install -yq --no-install-recommends \
   bluez-firmware \
   libdbus-1-dev \
   libexpat-dev \
+  libdbus-glib-1-dev \
   rfkill && apt-get clean && rm -rf /var/lib/apt/lists/* && \
 echo 'ENABLED=1' >> /etc/default/haproxy
 
@@ -47,6 +48,7 @@ RUN pip install packaging pyparsing setuptools youtube-dl \
   && pip install \
     mopidy-gmusic \
     Mopidy-YouTube \
+    dbus-python \
     mopidy-musicbox-webclient \
     Mopidy-Local-SQLite
 

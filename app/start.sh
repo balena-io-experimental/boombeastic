@@ -29,7 +29,6 @@ fi
 hciconfig hci0 up
 hciconfig hci0 sspmode 1
 hciconfig hci0 piscan
-bluetooth-agent 1234
 
 # resin-wifi-connect
 sleep 1 # Delay needed to avoid DBUS introspection errors
@@ -46,10 +45,12 @@ fi
 # Start haproxy
 service haproxy start >/dev/null 2>&1 || true
 
+/usr/src/app/bluez-agent.py &
+
 # Start bluetooth
-service bluetooth start >/dev/null 2>&1 || true
+#service bluetooth start >/dev/null 2>&1 || true
 
 # Start pulseaudio
-service pulseaudio.service start >/dev/null 2>&1 || true
+#service pulseaudio.service start >/dev/null 2>&1 || true
 
 node /usr/src/app/index.js
