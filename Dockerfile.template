@@ -33,6 +33,10 @@ apt-get update && apt-get install -yq --no-install-recommends \
   hostapd \
   iproute2 \
   iw \
+  pulseaudio \
+  pulseaudio-module-bluetooth \
+  bluez \
+  bluez-firmware \
   libdbus-1-dev \
   libexpat-dev \
   rfkill && apt-get clean && rm -rf /var/lib/apt/lists/* && \
@@ -46,6 +50,8 @@ RUN pip install packaging pyparsing setuptools youtube-dl \
     mopidy-musicbox-webclient \
     Mopidy-Local-SQLite
 
+RUN adduser root pulse-access && adduser mopidy pulse-access
+
 # Deploy haproxy config
 COPY ./Dockerbin/haproxy.cfg /etc/haproxy/haproxy.cfg
 
@@ -57,6 +63,16 @@ COPY ./Dockerbin/mopidy.conf /etc/mopidy/mopidy.conf
 
 # Configure DAC
 COPY ./Dockerbin/asound.conf /etc/asound.conf
+
+# Authorize PulseAudio to use BlueZ D-BUS interface
+COPY ./Dockerbin/pulseaudio-bluetooth.conf /etc/dbus-1/system.d/pulseaudio-bluetooth.conf
+
+# Configure pulse audio system
+COPY ./Dockerbin/pulseaudio/system.pa /etc/pulse/system.pa
+COPY ./Dockerbin/pulseaudio/daemon.conf /etc/pulse/daemon.conf
+
+# Configure pulse audio service
+COPY ./Dockerbin/pulseaudio.service /etc/systemd/system/pulseaudio.service
 
 # Move package.json to filesystem
 COPY ./app/package.json ./
@@ -87,6 +103,8 @@ RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --d
 
 # Disable haproxy and mopidy services - we will manually start it later
 RUN systemctl disable haproxy mopidy shairport-sync
+
+RUN systemctl enable pulseaudio.service
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on
