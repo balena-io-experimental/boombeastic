@@ -40,6 +40,7 @@ apt-get update && apt-get install -yq --no-install-recommends \
   libdbus-1-dev \
   libexpat-dev \
   libdbus-glib-1-dev \
+  python-bluez \
   rfkill && apt-get clean && rm -rf /var/lib/apt/lists/* && \
 echo 'ENABLED=1' >> /etc/default/haproxy
 
@@ -105,6 +106,8 @@ RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --d
   && cd shairport-sync && autoreconf -i -f \
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
   && make install && cd ../ && rm -rf shairport-sync
+
+RUN chmod +x /usr/src/app/bluez-agent.py
 
 # Disable haproxy and mopidy services - we will manually start it later
 RUN systemctl disable haproxy mopidy shairport-sync

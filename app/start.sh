@@ -27,7 +27,7 @@ if ! /usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -; then
 fi
 
 hciconfig hci0 up
-hciconfig hci0 sspmode 1
+hciconfig hci0 sspmode 0
 hciconfig hci0 piscan
 
 # resin-wifi-connect
@@ -45,7 +45,7 @@ fi
 # Start haproxy
 service haproxy start >/dev/null 2>&1 || true
 
-/usr/src/app/bluez-agent.py &
+#/usr/src/app/bluez-agent.py &
 
 # Start bluetooth
 #service bluetooth start >/dev/null 2>&1 || true
