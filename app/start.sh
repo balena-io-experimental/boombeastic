@@ -2,6 +2,9 @@
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
+BT_MODE=${BT_MODE:=false}
+BT_NAME=${BT_NAME:=Boombeastic}
+
 # Remove default audio
 rmmod snd_bcm2835  >/dev/null 2>&1 || true
 
@@ -28,6 +31,7 @@ fi
 
 hciconfig hci0 up
 hciconfig hci0 sspmode 0
+hciconfig hci0 name "$BT_NAME"
 hciconfig hci0 piscan
 
 # resin-wifi-connect
