@@ -74,6 +74,9 @@ COPY ./Dockerbin/pulseaudio/daemon.conf /etc/pulse/daemon.conf
 # Configure pulse audio service
 COPY ./Dockerbin/pulseaudio.service /etc/systemd/system/pulseaudio.service
 
+# Configure pulse audio service
+COPY ./Dockerbin/bluetooth/* /etc/bluetooth/
+
 # Move package.json to filesystem
 COPY ./app/package.json ./
 

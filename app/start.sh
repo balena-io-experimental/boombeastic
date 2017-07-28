@@ -20,6 +20,17 @@ mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 # Ensure mopidy folders are accessible to the mopidy user
 chown -R mopidy:audio /data/mopidy
 
+echo "Attaching hci0..."
+if ! /usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -; then
+    echo "First try failed. Let's try another time."
+    /usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -
+fi
+
+hciconfig hci0 up
+hciconfig hci0 sspmode 1
+hciconfig hci0 piscan
+bluetooth-agent 1234
+
 # resin-wifi-connect
 sleep 1 # Delay needed to avoid DBUS introspection errors
 printf "Checking if we are connected to the internet via a google ping...\n\n"
@@ -34,5 +45,11 @@ fi
 
 # Start haproxy
 service haproxy start >/dev/null 2>&1 || true
+
+# Start bluetooth
+service bluetooth start >/dev/null 2>&1 || true
+
+# Start pulseaudio
+service pulseaudio.service start >/dev/null 2>&1 || true
 
 node /usr/src/app/index.js
