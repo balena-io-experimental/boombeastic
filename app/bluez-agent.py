@@ -10,6 +10,7 @@ import dbus.service
 import dbus.mainloop.glib
 from optparse import OptionParser
 import bluezutils
+import os
 
 BUS_NAME = 'org.bluez'
 AGENT_INTERFACE = 'org.bluez.Agent1'
@@ -56,25 +57,20 @@ class Agent(dbus.service.Object):
 	def AuthorizeService(self, device, uuid):
 		print("AuthorizeService (%s, %s)" % (device, uuid))
 		return
-		authorize = ask("Authorize connection (yes/no): ")
-		if (authorize == "yes"):
-			return
-		raise Rejected("Connection rejected by user")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="s")
 	def RequestPinCode(self, device):
 		print("RequestPinCode (%s)" % (device))
 		set_trusted(device)
-		return ask("Enter PIN Code: ")
+		return os.getenv('BT_PIN', '1111')
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="u")
 	def RequestPasskey(self, device):
 		print("RequestPasskey (%s)" % (device))
 		set_trusted(device)
-		passkey = ask("Enter passkey: ")
-		return dbus.UInt32(passkey)
+		raise Rejected("Pairing not supported")
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="ouq", out_signature="")
@@ -91,20 +87,14 @@ class Agent(dbus.service.Object):
 					in_signature="ou", out_signature="")
 	def RequestConfirmation(self, device, passkey):
 		print("RequestConfirmation (%s, %06d)" % (device, passkey))
-		confirm = ask("Confirm passkey (yes/no): ")
-		if (confirm == "yes"):
-			set_trusted(device)
-			return
-		raise Rejected("Passkey doesn't match")
-
+		set_trusted(device)
+		return
+		
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="o", out_signature="")
 	def RequestAuthorization(self, device):
 		print("RequestAuthorization (%s)" % (device))
-		auth = ask("Authorize? (yes/no): ")
-		if (auth == "yes"):
-			return
-		raise Rejected("Pairing rejected")
+		return
 
 	@dbus.service.method(AGENT_INTERFACE,
 					in_signature="", out_signature="")
