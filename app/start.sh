@@ -5,6 +5,13 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 BT_MODE=${BT_MODE:=false}
 BT_NAME=${BT_NAME:=Boombeastic}
 
+BT_DISABLE_WIFI=${BT_DISABLE_WIFI:=NONE}
+
+if [ $BT_DISABLE_WIFI != "NONE" ]; then
+    echo "Disabling WIFI adapter: $BT_DISABLE_WIFI"
+    ifconfig $BT_DISABLE_WIFI down
+fi
+
 # Remove default audio
 rmmod snd_bcm2835  >/dev/null 2>&1 || true
 
