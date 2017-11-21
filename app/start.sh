@@ -13,7 +13,6 @@ modprobe i2c-dev || true
 node led_loading.js || true
 
 # resin-wifi-connect
-sleep 1 # Delay needed to avoid DBUS introspection errors
 printf "Checking if we are connected to the internet via a google ping...\n\n"
 wget --spider http://google.com 2>&1
 if [ $? -eq 0 ]; then
