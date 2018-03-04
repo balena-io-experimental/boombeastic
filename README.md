@@ -21,6 +21,12 @@ Please refer to the [Wiki](https://github.com/resin-io-projects/boombeastic/wiki
 * [YouTube 2](https://youtu.be/pKvJKaCDQW8)
 * [Vine 1](https://vine.co/v/5g71nzHwXvr)
 
+## Press
+
+* https://hackaday.com/2016/12/21/an-eye-catching-raspberry-pi-smart-speaker/
+* https://blog.adafruit.com/2017/04/20/boombeastic-raspberry-pi-stereo-by-curcuz/
+* https://www.geek.com/tech/anyone-can-make-this-raspberry-pi-powered-speaker-1683679/
+* https://lifehacker.com/build-your-own-raspberry-pi-powered-smart-speaker-1790411587
 
 ## License
 
