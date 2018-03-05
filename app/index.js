@@ -95,7 +95,7 @@
       console.log(chalk.white('Supervisor status update: ' + status));
       switch (status) {
         case "Idle":
-          display.image(display.presets.smile);
+          display.image(display.presets.bluetooth);
           break;
         case "Installing":
           display.image(display.presets.busy);

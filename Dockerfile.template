@@ -33,8 +33,14 @@ apt-get update && apt-get install -yq --no-install-recommends \
   hostapd \
   iproute2 \
   iw \
+  pulseaudio \
+  pulseaudio-module-bluetooth \
+  bluez \
+  bluez-firmware \
   libdbus-1-dev \
   libexpat-dev \
+  libdbus-glib-1-dev \
+  python-bluez \
   rfkill && apt-get clean && rm -rf /var/lib/apt/lists/* && \
 echo 'ENABLED=1' >> /etc/default/haproxy
 
@@ -43,8 +49,11 @@ RUN pip install packaging pyparsing setuptools youtube-dl \
   && pip install \
     mopidy-gmusic \
     Mopidy-YouTube \
+    dbus-python \
     mopidy-musicbox-webclient \
     Mopidy-Local-SQLite
+
+RUN adduser root pulse-access && adduser mopidy pulse-access
 
 # Deploy haproxy config
 COPY ./Dockerbin/haproxy.cfg /etc/haproxy/haproxy.cfg
@@ -57,6 +66,19 @@ COPY ./Dockerbin/mopidy.conf /etc/mopidy/mopidy.conf
 
 # Configure DAC
 COPY ./Dockerbin/asound.conf /etc/asound.conf
+
+# Authorize PulseAudio to use BlueZ D-BUS interface
+COPY ./Dockerbin/pulseaudio-bluetooth.conf /etc/dbus-1/system.d/pulseaudio-bluetooth.conf
+
+# Configure pulse audio system
+COPY ./Dockerbin/pulseaudio/system.pa /etc/pulse/system.pa
+COPY ./Dockerbin/pulseaudio/daemon.conf /etc/pulse/daemon.conf
+
+# Configure pulse audio service
+COPY ./Dockerbin/pulseaudio.service /etc/systemd/system/pulseaudio.service
+
+# Configure pulse audio service
+COPY ./Dockerbin/bluetooth/* /etc/bluetooth/
 
 # Move package.json to filesystem
 COPY ./app/package.json ./
@@ -85,8 +107,15 @@ RUN git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --d
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
   && make install && cd ../ && rm -rf shairport-sync
 
+RUN chmod +x /usr/src/app/bluez-agent.py
+
+# Configure pulse audio service
+COPY ./Dockerbin/bt-agent.service /etc/systemd/system/bt-agent.service
+
 # Disable haproxy and mopidy services - we will manually start it later
 RUN systemctl disable haproxy mopidy shairport-sync
+
+RUN systemctl enable pulseaudio.service bluetooth bt-agent.service
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on

@@ -2,6 +2,16 @@
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
+BT_MODE=${BT_MODE:=false}
+BT_NAME=${BT_NAME:=Boombeastic}
+
+BT_DISABLE_WIFI=${BT_DISABLE_WIFI:=NONE}
+
+if [ $BT_DISABLE_WIFI != "NONE" ]; then
+    echo "Disabling WIFI adapter: $BT_DISABLE_WIFI"
+    ifconfig $BT_DISABLE_WIFI down
+fi
+
 # Remove default audio
 rmmod snd_bcm2835  >/dev/null 2>&1 || true
 
@@ -20,6 +30,17 @@ mkdir /data/mopidy/cache >/dev/null 2>&1 || true
 # Ensure mopidy folders are accessible to the mopidy user
 chown -R mopidy:audio /data/mopidy
 
+echo "Attaching hci0..."
+if ! /usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -; then
+    echo "First try failed. Let's try another time."
+    /usr/bin/hciattach /dev/ttyAMA0 bcm43xx 921600 noflow -
+fi
+
+hciconfig hci0 up
+hciconfig hci0 sspmode 0
+hciconfig hci0 name "$BT_NAME"
+hciconfig hci0 piscan
+
 # resin-wifi-connect
 sleep 1 # Delay needed to avoid DBUS introspection errors
 printf "Checking if we are connected to the internet via a google ping...\n\n"
@@ -34,5 +55,13 @@ fi
 
 # Start haproxy
 service haproxy start >/dev/null 2>&1 || true
+
+#/usr/src/app/bluez-agent.py &
+
+# Start bluetooth
+#service bluetooth start >/dev/null 2>&1 || true
+
+# Start pulseaudio
+#service pulseaudio.service start >/dev/null 2>&1 || true
 
 node /usr/src/app/index.js

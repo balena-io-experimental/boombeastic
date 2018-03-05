@@ -1,0 +1,10 @@
+[Unit]
+Description=Bluetooth Agent
+Wants=bluetooth
+
+[Service]
+Type=simple
+ExecStart=/usr/src/app/bluez-agent.py -c "NoInputNoOutput"
+
+[Install]
+WantedBy=multi-user.target
