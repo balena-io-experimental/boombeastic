@@ -7,6 +7,7 @@ COPY ./app/package.json ./
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
+  apt-transport-https \
   python-dev \
   xmltoman \
   git \
@@ -27,6 +28,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   alsa-base \
   alsa-utils \
   dnsmasq \
+  && curl -sSL https://dtcooper.github.io/raspotify/key.asc | apt-key add -v - \
+  && echo 'deb https://dtcooper.github.io/raspotify jessie main' | tee /etc/apt/sources.list.d/raspotify.list \
+  && apt-get update && apt-get install -yq --no-install-recommends raspotify \
   && git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1  --branch 3.1.7 \
   && cd shairport-sync && autoreconf -i -f \
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
@@ -42,6 +46,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     xmltoman \
     git \
     curl \
+    apt-transport-https \
     autoconf \
     automake \
     libtool \
@@ -59,6 +64,9 @@ COPY ./Dockerbin/asound.conf /etc/asound.conf
 
 # Move app to filesystem
 COPY ./app ./
+
+# Configure raspotify
+COPY ./Dockerbin/raspotify /etc/default/raspotify
 
 # Configure shairport-sync
 COPY ./Dockerbin/shairport-sync.conf /usr/local/etc/shairport-sync.conf

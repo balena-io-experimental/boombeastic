@@ -2,7 +2,7 @@
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 systemctl start shairport-sync
-
+systemctl start raspotify
 # Remove default audio
 rmmod snd_bcm2835  >/dev/null 2>&1 || true
 
@@ -20,7 +20,7 @@ if [ $? -eq 0 ]; then
 else
   printf "\nnot connected, starting wifi-connect\n\n"
   node led_wifi_connect.js || true
-  ./wifi-connect --clear=true
+  ./wifi-connect
 fi
 
 # Start app
