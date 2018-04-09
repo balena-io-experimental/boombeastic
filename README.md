@@ -1,6 +1,6 @@
 # BoomBeastic
 
-A Raspberry Pi based smart connected speaker based on [Mopidy](https://github.com/mopidy/mopidy)!
+A Raspberry Pi based smart connected speaker that can play music via AirPlay&reg; and Spotify&reg; connect
 
 **this application is compatible with resinOS 2.0+**
 
@@ -24,7 +24,7 @@ Please refer to the [Wiki](https://github.com/resin-io-projects/boombeastic/wiki
 
 ## License
 
-Copyright 2016 Resinio Ltd.
+Copyright 2018 Resinio Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
