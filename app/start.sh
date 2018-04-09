@@ -1,10 +1,15 @@
 #!/bin/bash
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
-systemctl start shairport-sync
-systemctl start raspotify
 # Remove default audio
 rmmod snd_bcm2835  >/dev/null 2>&1 || true
+
+# Set raspotify to show the device name using resin device name
+sed -i -e "s/BoomBeastic/$RESIN_DEVICE_NAME_AT_INIT/g" /etc/default/raspotify
+sed -i -e "s/BoomBeastic/$RESIN_DEVICE_NAME_AT_INIT/g" /usr/local/etc/shairport-sync.conf
+# Start cast services
+systemctl start shairport-sync
+systemctl start raspotify
 
 # Enable i2c and other interfaces
 modprobe i2c-dev || true

@@ -1,7 +1,7 @@
 # /etc/default/raspotify -- Arguments/configuration for librespot
 
 # Device name on Spotify Connect
-# DEVICE_NAME="BoomBeastic"
+DEVICE_NAME="BoomBeastic"
 
 # Bitrate, one of 96 (low quality), 160 (default quality), or 320 (high quality)
 BITRATE="320"

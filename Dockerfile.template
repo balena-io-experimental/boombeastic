@@ -67,6 +67,7 @@ COPY ./app ./
 
 # Configure raspotify
 COPY ./Dockerbin/raspotify /etc/default/raspotify
+RUN systemctl disable raspotify
 
 # Configure shairport-sync
 COPY ./Dockerbin/shairport-sync.conf /usr/local/etc/shairport-sync.conf
