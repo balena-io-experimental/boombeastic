@@ -11,25 +11,31 @@
 
   pipeReader.on('pbeg', (data) => {
     'use strict';
-    display.image(display.presets.shairplay);
     console.log(chalk.cyan('AirPlay stream started'));
-    console.dir(data);
+    display.image(display.presets.airplay);
+    if (data) {
+      console.dir(data);
+    }
   });
 
   pipeReader.on('pend', (data) => {
     'use strict';
-    display.image(display.presets.smile);
     console.log(chalk.yellow('AirPlay stream ended'));
+    display.image(display.presets.smile);
   });
 
   pipeReader.on('meta', (data) => {
     'use strict';
-    console.dir(data);
+    if (data) {
+      console.dir(data);
+    }
   });
 
   pipeReader.on('error', (error) => {
     'use strict';
-    console.dir(error);
+    if (error) {
+      console.dir(error);
+    }
   });
 
   // Supervisor

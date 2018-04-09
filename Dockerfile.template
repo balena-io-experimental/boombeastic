@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:8-slim
+FROM resin/%%RESIN_MACHINE_NAME%%-node:8.9-slim
 
 # Move to app dir
 RUN mkdir -p /usr/src/app/
