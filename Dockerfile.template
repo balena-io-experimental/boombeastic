@@ -5,7 +5,7 @@ RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add - &&  \
 wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list && \
 apt-get update && apt-get install -yq --no-install-recommends \
   python-dev \
-  python-pip \
+  python3-pip \
   git \
   autoconf \
   automake \
@@ -39,8 +39,8 @@ apt-get update && apt-get install -yq --no-install-recommends \
 echo 'ENABLED=1' >> /etc/default/haproxy
 
 # Update setup-tools and install mopidy extensions
-RUN pip install packaging pyparsing setuptools youtube-dl \
-  && pip install \
+RUN pip3 install packaging pyparsing setuptools youtube-dl \
+  && pip3 install \
     mopidy-gmusic \
     Mopidy-YouTube \
     mopidy-musicbox-webclient \
