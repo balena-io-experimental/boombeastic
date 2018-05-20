@@ -45,9 +45,11 @@ io.on('connection', function(socket) {
     console.log(chalk.cyan('service ' + chalk.underline(serviceName) + ' identified with ID ' + chalk.underline(socket.id)));
   });
 
-  socket.on('emoji', (data)=> {
-    let index = getServiceIndexByName("emoji");
-    io.sockets.connected[services[index].id].emit('emoji', data);
+  socket.on('emoji', (data) => {
+    let index = getServiceIndexByName("ledmatrix");
+    if (index > -1) {
+      io.sockets.connected[services[index].id].emit('emoji', data);
+    }
   });
 
 });
