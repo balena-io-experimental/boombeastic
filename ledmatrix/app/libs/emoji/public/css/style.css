@@ -1,0 +1,36 @@
+body {
+  width: 100%;
+  min-height: 100%;
+}
+#grid_container {
+  margin: auto;
+  width: 80%;
+  min-height: 80%;
+}
+.btn-floating {
+  margin: 50px !important;
+}
+.btn-floating.btn-large {
+    width: 100px  !important;
+    height: 100px  !important;
+}
+.btn-large i {
+    font-size: 4.6rem !important;
+}
+.btn-floating.btn-large i {
+    line-height: 100px !important;
+}
+.brand-logo img {
+  height: 60px;
+}
+.emojiGrid { margin:1em auto; border-collapse:collapse }
+.emojiGrid td {
+    cursor:pointer;
+    width:8%; height:8%;
+    border:1px solid #ccc;
+    text-align:center;
+    font-family:sans-serif; font-size:13px
+}
+.emojiGrid td.clicked {
+    background-color:#FFC107;
+}

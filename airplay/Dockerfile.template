@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:8-slim
+FROM resin/%%RESIN_MACHINE_NAME%%-node:8.9-slim
 
 # Move to app dir
 RUN mkdir -p /usr/src/app/
@@ -25,21 +25,12 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   avahi-daemon \
   libnss-mdns \
   libsoxr-dev \
-  alsa-base \
   alsa-utils \
-  dnsmasq \
-  && curl -sSL https://dtcooper.github.io/raspotify/key.asc | apt-key add -v - \
-  && echo 'deb https://dtcooper.github.io/raspotify jessie main' | tee /etc/apt/sources.list.d/raspotify.list \
-  && apt-get update && apt-get install -yq --no-install-recommends raspotify \
-  && git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1  --branch 3.1.7 \
+  && git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1  --branch 3.2RC8 \
   && cd shairport-sync && autoreconf -i -f \
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
   && make install && cp ./scripts/shairport-sync.conf /usr/local/etc/shairport-sync.conf && cd ../ && rm -rf shairport-sync \
   && JOBS=MAX npm install --unsafe-perm --production && npm cache clean --force && rm -rf /tmp/* \
-  && curl https://api.github.com/repos/resin-io/resin-wifi-connect/releases/latest -s \
-      | grep -hoP 'browser_download_url": "\K.*%%RESIN_ARCH%%\.tar\.gz' \
-      | xargs -n1 curl -Ls \
-      | tar -xvz -C /usr/src/app/ \
   && apt-get purge -y \
     build-essential \
     python-dev \
@@ -55,7 +46,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libasound2-dev \
     libpopt-dev \
     libconfig-dev \
-    libavahi-client-dev \
     libsoxr-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -64,10 +54,6 @@ COPY ./Dockerbin/asound.conf /etc/asound.conf
 
 # Move app to filesystem
 COPY ./app ./
-
-# Configure raspotify
-COPY ./Dockerbin/raspotify /etc/default/raspotify
-RUN systemctl disable raspotify
 
 # Configure shairport-sync
 COPY ./Dockerbin/shairport-sync.conf /usr/local/etc/shairport-sync.conf

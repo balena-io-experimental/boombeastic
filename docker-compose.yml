@@ -1,0 +1,57 @@
+version: '2'
+services:
+  ledmatrix:
+    build: ./ledmatrix
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
+      - "/dev/mem:/dev/mem"
+    restart: always
+    network_mode: host
+    privileged: true
+    labels:
+      io.resin.features.kernel-modules: '1'
+    depends_on:
+      - ws
+  network:
+    build: ./network
+    restart: always
+    privileged: true
+    network_mode: host
+    labels:
+      io.resin.features.dbus: '1'
+      io.resin.features.firmware: '1'
+  airplay:
+    build: ./airplay
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
+  spotify:
+    build: ./spotify
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
+  mopidy:
+    build: ./mopidy
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
+  supervisor:
+    build: ./supervisor
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
+  ws:
+    build: ./ws
+    restart: always
+    privileged: true
+    network_mode: host
+    expose:
+      - "80"

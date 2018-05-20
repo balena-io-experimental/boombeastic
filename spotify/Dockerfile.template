@@ -1,0 +1,35 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-node:8-slim
+
+# Move to app dir
+RUN mkdir -p /usr/src/app/
+WORKDIR /usr/src/app
+COPY ./app/package.json ./
+
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+  apt-transport-https \
+  curl \
+  alsa-utils \
+  && curl -sSL https://dtcooper.github.io/raspotify/key.asc | apt-key add -v - \
+  && echo 'deb https://dtcooper.github.io/raspotify jessie main' | tee /etc/apt/sources.list.d/raspotify.list \
+  && apt-get update && apt-get install -yq --no-install-recommends raspotify \
+  && JOBS=MAX npm install --unsafe-perm --production && npm cache clean --force && rm -rf /tmp/* \
+  && apt-get purge -y \
+    curl \
+    apt-transport-https \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Configure DAC
+COPY ./Dockerbin/asound.conf /etc/asound.conf
+
+# Move app to filesystem
+COPY ./app ./
+
+# Configure raspotify
+COPY ./Dockerbin/raspotify /etc/default/raspotify
+RUN systemctl disable raspotify
+
+## Uncomment if you want systemd
+ENV INITSYSTEM on
+
+# Start app
+CMD ["bash", "/usr/src/app/start.sh"]

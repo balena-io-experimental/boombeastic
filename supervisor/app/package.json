@@ -1,6 +1,6 @@
 {
-  "name": "boombeastic",
-  "version": "1.0.0-beta1",
+  "name": "boombeastic-ledmatrix",
+  "version": "1.0.0",
   "description": "A Raspberry Pi based smart fleet of connected speakers!",
   "main": "index.js",
   "directories": {
@@ -45,16 +45,9 @@
     "strict": true
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
     "chalk": "~2.3.2",
-    "compression": "~1.7.2",
     "debug": "~3.1.0",
-    "express": "~4.16.3",
-    "i2c": "~0.2.3",
-    "lodash": "~4.17.5",
-    "random-int-array": "~1.0.0",
-    "request": "~2.85.0",
-    "serve-static": "~1.13.2",
-    "shairport-sync-reader": "~0.0.7"
+    "request": "^2.86.0",
+    "socket.io-client": "^2.1.1"
   }
 }

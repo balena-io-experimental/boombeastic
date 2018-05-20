@@ -1,0 +1,53 @@
+{
+  "name": "boombeastic-spotify",
+  "version": "1.0.0",
+  "description": "A Raspberry Pi based smart fleet of connected speakers!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-playground/boombeastic.git"
+  },
+  "keywords": [
+    "resin",
+    "io",
+    "boom",
+    "bastic",
+    "beastic",
+    "beast",
+    "box",
+    "speaker",
+    "audio",
+    "sound",
+    "dac",
+    "rpi",
+    "raspberry",
+    "zero",
+    "led",
+    "matrix",
+    "sync",
+    "multi",
+    "room"
+  ],
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/boombeastic/issues"
+  },
+  "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "dependencies": {
+    "chalk": "~2.3.2",
+    "debug": "~3.1.0",
+    "shairport-sync-reader": "~0.0.7",
+    "socket.io-client": "^2.1.1"
+  }
+}
