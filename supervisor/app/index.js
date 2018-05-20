@@ -10,6 +10,7 @@
   socket.on('connect', () => {
     'use strict';
     socket.emit('identify', 'supervisor');
+    socket.emit("emoji","smile");
   });
 
   supervisor.start(500, () => {
