@@ -40,7 +40,7 @@ echo 'ENABLED=1' >> /etc/default/haproxy
 
 # Update setup-tools and install mopidy extensions
 RUN pip install --upgrade setuptools \
-RUN pip install packaging pyparsing setuptools youtube-dl \
+RUN pip install packaging pyparsing  youtube-dl \
   && pip install \
     mopidy-gmusic \
     Mopidy-YouTube \
