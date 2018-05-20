@@ -18,7 +18,7 @@
   pipeReader.on('pbeg', (data) => {
     'use strict';
     console.log(chalk.cyan('AirPlay stream started'));
-    socket.emit("emoji",display.presets.airplay);
+    socket.emit("emoji","airplay");
     if (data) {
       console.dir(data);
     }
@@ -27,7 +27,7 @@
   pipeReader.on('pend', (data) => {
     'use strict';
     console.log(chalk.yellow('AirPlay stream ended'));
-    socket.emit("emoji",display.presets.smile);
+    socket.emit("emoji","smile");
   });
 
   pipeReader.on('meta', (data) => {

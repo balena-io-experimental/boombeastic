@@ -15,7 +15,7 @@
 
   socket.on('emoji', (data) => {
     'use strict';
-    display.image(data);
+    display.image(display.presets[data]);
   });
 
   display.image(display.presets.smile);

@@ -18,19 +18,19 @@
       console.log(chalk.white('Supervisor status update: ' + status));
       switch (status) {
         case "Idle":
-          socket.emit("emoji",display.presets.smile);
+          socket.emit("emoji","smile");
           break;
         case "Installing":
-          socket.emit("emoji",display.presets.busy);
+          socket.emit("emoji","busy");
           break;
         case "Downloading":
-          socket.emit("emoji",display.presets.download);
+          socket.emit("emoji","download");
           break;
         case "Starting":
-          socket.emit("emoji",display.presets.fwd);
+          socket.emit("emoji","fwd");
           break;
         case "Stopping":
-          socket.emit("emoji",display.presets.stop);
+          socket.emit("emoji","stop");
           break;
       }
     });
