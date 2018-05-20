@@ -35,4 +35,9 @@
       }
     });
   });
+  process.on('SIGTERM', () => {
+    'use strict';
+    self.emit('emoji', 'stop');
+    process.exit(1);
+  });
 }
