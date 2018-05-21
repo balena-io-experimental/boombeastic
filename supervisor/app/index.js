@@ -36,9 +36,11 @@
       }
     });
   });
+
   process.on('SIGTERM', () => {
     'use strict';
     socket.emit('emoji', 'stop');
     process.exit(1);
   });
+  
 }

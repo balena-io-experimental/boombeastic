@@ -7,7 +7,7 @@
   const display = require(__dirname + '/libs/ledmatrix/index.js');
   const emoji = require(__dirname + '/libs/emoji/index.js');
   const debug = require('debug')('main');
-
+  display.init();
   socket.on('connect', () => {
     'use strict';
     socket.emit('identify', 'ledmatrix');

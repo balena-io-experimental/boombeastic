@@ -179,6 +179,7 @@
   display.prototype.image = function(img) {
     "use strict";
     if (parseInt(process.env.NOLEDMATRIX)) {
+      console.log('ledmatrix is disabled, skipping this');
       return true;
     }
     if (self.blinking) {
