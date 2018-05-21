@@ -51,7 +51,7 @@
       'index': ['index.html']
     }));
 
-    app.post('/v1/draw/:emoji', (req, res) => {
+    app.post('/v1/draw/:emoji/', (req, res) => {
       // Draws the Emoji on the LED Display
       if (!req.params.emoji) {
         return res.status(400).send('Bad Request');
@@ -65,13 +65,13 @@
       res.status(200).send('OK');
     });
 
-    app.put('/v1/draw', (req, res) => {
+    app.put('/v1/draw/', (req, res) => {
       // Draws the Emoji on the LED Display
       self.emit("reset");
       res.status(200).send('OK');
     });
 
-    app.delete('/v1/draw', (req, res) => {
+    app.delete('/v1/draw/', (req, res) => {
       // Clears the LED Dipsplay
       let emoji = [
         0, 0, 0, 0, 0, 0, 0, 0,

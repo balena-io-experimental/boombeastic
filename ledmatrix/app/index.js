@@ -3,7 +3,7 @@
 {
   const chalk = require("chalk");
   const io = require('socket.io-client');
-  const socket = io('http://localhost');
+  const socket = io('http://localhost:1337');
   const display = require(__dirname + '/libs/ledmatrix/index.js');
   const emoji = require(__dirname + '/libs/emoji/index.js');
   const debug = require('debug')('main');

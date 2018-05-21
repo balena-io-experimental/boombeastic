@@ -2,7 +2,7 @@
 
 {
   const io = require('socket.io-client');
-  const socket = io('http://localhost');
+  const socket = io('http://localhost:1337');
   const fs = require('fs');
   const ini = require('ini');
   const exec = require('child_process').exec;
