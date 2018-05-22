@@ -21,6 +21,8 @@ Please refer to the [Wiki](https://github.com/resin-io-projects/boombeastic/wiki
 
 ![BoomBeastic stereo orange](https://thingiverse-production-new.s3.amazonaws.com/renders/82/52/1c/87/d6/7d5fabcf053803fd43c398854c3bbfa0_preview_featured.jpg)
 
+![BoomBeastic fleet at Maker Faire Rome 2017](https://i.imgur.com/5E2B6yE.jpg)
+
 ## Videos
 
 * [YouTube 1](https://www.youtube.com/watch?v=EnLgmW8kyis)
