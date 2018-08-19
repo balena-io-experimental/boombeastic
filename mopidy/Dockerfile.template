@@ -72,6 +72,6 @@ RUN systemctl disable mopidy
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on
-
+ENV UDEV=off
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]
