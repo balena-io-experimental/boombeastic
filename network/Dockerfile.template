@@ -29,5 +29,5 @@ COPY ./app ./
 
 ## Uncomment if you want systemd
 ENV INITSYSTEM on
-
+ENV UDEV=off
 CMD ["bash", "start.sh"]
