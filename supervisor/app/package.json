@@ -47,7 +47,7 @@
   "dependencies": {
     "chalk": "~2.3.2",
     "debug": "~3.1.0",
-    "request": "^2.86.0",
-    "socket.io-client": "^2.1.1"
+    "request": "~2.88.0",
+    "socket.io-client": "~2.1.1"
   }
 }
