@@ -4,7 +4,7 @@ A Raspberry Pi based smart connected speaker that can play music via AirPlay&reg
 
 **this application is compatible with resinOS 2.12+**
 
-**this application is also compatible with [project Fin](https://resin.io/blog/introducing-project-fin-a-board-for-fleet-owners/)!**
+**this application is also compatible with [Balena Fin](https://www.balenafin.io/)!**
 
 ![BoomBeastic mini veneer walnut](https://pbs.twimg.com/media/DTS_UABX4AEOt_j.jpg:small)
 
