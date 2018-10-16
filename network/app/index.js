@@ -28,6 +28,8 @@
       wifiConnect.on('data', (output) => {
         console.log(chalk.cyan("wifi-connect: ")+output);
       });
+    } else {
+      console.log(chalk.green("online check ok, skipping wifi-connect"));
     }
   });
 
