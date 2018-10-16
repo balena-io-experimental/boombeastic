@@ -2,14 +2,14 @@
 
 A Raspberry Pi based smart connected speaker that can play music via AirPlay&reg; and Spotify&reg; connect
 
-**this application is compatible with resinOS 2.12+**
+**this application is compatible with balenaOS 2.12+**
 
-**this application is also compatible with [Balena Fin](https://www.balenafin.io/)!**
+**this application is also compatible with [Balena Fin](https://www.balena.io/fin)!**
 
 ![BoomBeastic mini veneer walnut](https://pbs.twimg.com/media/DTS_UABX4AEOt_j.jpg:small)
 
 ## Background
-*__You can read about the making of the boombeastic and see more photos [here](https://resin.io/blog/the-making-of-boombeastic/)__*
+*__You can read about the making of the boombeastic and see more photos [here](https://balena.io/blog/the-making-of-boombeastic/)__*
 
 ## Documentation
 
@@ -38,7 +38,7 @@ Please refer to the [Wiki](https://github.com/resin-io-projects/boombeastic/wiki
 
 ## License
 
-Copyright 2018 Resinio Ltd.
+Copyright 2018 balena Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
