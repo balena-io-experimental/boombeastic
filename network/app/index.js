@@ -20,7 +20,7 @@
     if (!online) {
       console.log(chalk.yellow("online check failed, spawning wifi-connect"));
       socket.emit("emoji", "wifi");
-      wifiConnect = spawn(__dirname + '/.wifi-connect', ['-a', '600']);
+      wifiConnect = spawn(__dirname + '/.wifi-connect', ['-a', '600', '-u','/usr/src/app/ui']);
       wifiConnect.on('close', (code) => {
         console.log(chalk.cyan("wifi-connect exited"));
         socket.emit('emoji', "smile");
