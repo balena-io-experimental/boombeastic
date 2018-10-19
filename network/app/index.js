@@ -13,21 +13,24 @@
   socket.on('connect', () => {
     'use strict';
     socket.emit('identify', 'network');
-    isOnline().then(online => {
-      if (!online) {
-        console.log(chalk.yellow("online check failed, spawning wifi-connect"));
-        socket.emit("emoji", "wifi");
-        wifiConnect = spawn(__dirname + '/.wifi-connect', ['-a', '600', '-u', '/usr/src/app/ui']);
-        wifiConnect.on('close', (code) => {
-          console.log(chalk.cyan("wifi-connect exited"));
-          socket.emit('emoji', "smile");
-        });
-        wifiConnect.on('data', (output) => {
-          console.log(chalk.cyan("wifi-connect: ") + output);
-        });
-      } else {
-        console.log(chalk.green("online check ok, skipping wifi-connect"));
-      }
-    });
   });
+
+  isOnline().then(online => {
+    "use strict";
+    if (!online) {
+      console.log(chalk.yellow("online check failed, spawning wifi-connect"));
+      socket.emit("emoji", "wifi");
+      wifiConnect = spawn(__dirname + '/wifi-connect', ['-a', '600', '-u','/usr/src/app/ui']);
+      wifiConnect.on('close', (code) => {
+        console.log(chalk.cyan("wifi-connect exited"));
+        socket.emit('emoji', "smile");
+      });
+      wifiConnect.on('data', (output) => {
+        console.log(chalk.cyan("wifi-connect: ")+output);
+      });
+    } else {
+      console.log(chalk.green("online check ok, skipping wifi-connect"));
+    }
+  });
+
 }
