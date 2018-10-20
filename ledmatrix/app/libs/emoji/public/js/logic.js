@@ -13,7 +13,7 @@ jQuery('document').ready(function($) {
         var imageString = image.join();
         $.ajax({
             type: "POST",
-            url: "/emoji/v1/draw/" + imageString,
+            url: "/v1/draw/" + imageString,
             crossDomain: true,
             success: function(responseData, status, xhr) {
 
@@ -27,7 +27,7 @@ jQuery('document').ready(function($) {
     $("#reset_image").bind("click", function() {
         $.ajax({
             type: "PUT",
-            url: "/emoji/v1/draw",
+            url: "/v1/draw",
             crossDomain: true,
             success: function(responseData, status, xhr) {
 
@@ -40,7 +40,7 @@ jQuery('document').ready(function($) {
     $("#clear_image").bind("click", function() {
         $.ajax({
             type: "DELETE",
-            url: "/emoji/v1/draw/",
+            url: "/v1/draw/",
             crossDomain: true,
             success: function(responseData, status, xhr) {
                 image = [
