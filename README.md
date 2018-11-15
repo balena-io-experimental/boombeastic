@@ -4,7 +4,7 @@ A Raspberry Pi based smart connected speaker that can play music via AirPlay&reg
 
 **this application is compatible with balenaOS 2.12+**
 
-**this application is also compatible with [Balena Fin](https://www.balena.io/fin)!**
+**this application is also compatible with [balenaFin](https://www.balena.io/fin)!**
 
 ![BoomBeastic mini veneer walnut](https://pbs.twimg.com/media/DTS_UABX4AEOt_j.jpg:small)
 
@@ -13,7 +13,7 @@ A Raspberry Pi based smart connected speaker that can play music via AirPlay&reg
 
 ## Documentation
 
-Please refer to the [Wiki](https://github.com/resin-io-projects/boombeastic/wiki)
+Please refer to the [Wiki](https://github.com/balena-io-projects/boombeastic/wiki)
 
 ## Pictures
 
