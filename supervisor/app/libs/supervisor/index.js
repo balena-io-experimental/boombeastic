@@ -7,6 +7,7 @@
   const request = require('request');
   const _ = require('lodash');
   const debug = require('debug')('supervisor');
+  const appname = process.env.BALENA_APP_NAME;
   let self;
   // declaring supervisorClient
   let supervisorClient = function() {
@@ -25,6 +26,7 @@
         if (!error && response.statusCode == 200) {
           body = JSON.parse(body);
           debug('supervisor', body);
+
           if (self.filterServicesWithStatus(body.appname.services, "downloading")) {
             if (self.status != "downloading") {
               self.status = "downloading";
