@@ -1,7 +1,7 @@
 {
-  "name": "boombeastic-ledmatrix",
-  "version": "1.0.0",
-  "description": "A Raspberry Pi based smart fleet of connected speakers!",
+  "name": "boombeastic-supervisor",
+  "version": "2.0.0",
+  "description": "A services that monitors the balenaOS supervisor application state endpoint and reports back events like update download",
   "main": "index.js",
   "directories": {
     "doc": "docs"
