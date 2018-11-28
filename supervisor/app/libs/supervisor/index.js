@@ -27,17 +27,17 @@
           body = JSON.parse(body);
           debug('supervisor', body);
 
-          if (self.filterServicesWithStatus(body.appname.services, "downloading")) {
+          if (self.filterServicesWithStatus(body[appname].services, "downloading")) {
             if (self.status != "downloading") {
               self.status = "downloading";
               self.emit('status', "downloading");
             }
-          } else if (self.filterServicesWithStatus(body.appname.services, "idle")) {
+          } else if (self.filterServicesWithStatus(body[appname].services, "idle")) {
             if (self.status != "idle") {
               self.status = "idle";
               self.emit('status', "idle");
             }
-          } else if (self.filterServicesWithStatus(body.appname.services, "stopping")) {
+          } else if (self.filterServicesWithStatus(body[appname].services, "stopping")) {
             if (self.status != "stopping") {
               self.status = "stopping";
               self.emit('status', "stopping");
