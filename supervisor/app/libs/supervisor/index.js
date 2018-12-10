@@ -37,7 +37,7 @@
               self.status = "idle";
               self.emit('status', "idle");
             }
-          } else if (self.filterServicesWithStatus(body[appname].services, "Exited")) {
+          } else if (self.filterServicesWithStatus(body[appname].services, "exited")) {
             if (self.status != "stopping") {
               self.status = "stopping";
               self.emit('status', "stopping");
@@ -61,7 +61,8 @@
 
   supervisorClient.prototype.filterServicesWithStatus = (services, status) => {
     'use strict';
-    return _.filter(services, (service) => service.status === status);
+    let servicesCheck = _.filter(services, (service) => service.status === status);
+    return servicesCheck.length;
   };
 
   module.exports = new supervisorClient();
