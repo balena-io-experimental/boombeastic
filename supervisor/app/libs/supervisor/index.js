@@ -59,5 +59,10 @@
     clearInterval(this.poll);
   };
 
+  supervisorClient.prototype.filterServicesWithStatus = (services, status) => {
+    'use strict';
+    return _.filter(services, (service) => service.status === status);
+  };
+
   module.exports = new supervisorClient();
 }
