@@ -45,6 +45,8 @@ services:
     build: ./supervisor
     restart: always
     network_mode: host
+    labels:
+      io.balena.features.supervisor-api: '1'
     privileged: true
     depends_on:
       - ws
