@@ -24,7 +24,7 @@
           socket.emit("emoji","download");
           break;
         case "stopping":
-          socket.emit("emoji","stop");
+          socket.emit("emoji","busy");
           break;
       }
     });
