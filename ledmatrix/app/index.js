@@ -18,8 +18,6 @@
     display.image(display.presets[data]);
   });
 
-  display.image(display.presets.smile);
-
   emoji.start(() => {
       'use strict';
       emoji.on('emoji', (emoji) => {

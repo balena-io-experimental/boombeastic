@@ -10,7 +10,6 @@
   socket.on('connect', () => {
     'use strict';
     socket.emit('identify', 'supervisor');
-    socket.emit("emoji","smile");
   });
 
   supervisor.start(500, () => {
@@ -18,20 +17,11 @@
     supervisor.on('status', (status) => {
       console.log(chalk.white('Supervisor status update: ' + status));
       switch (status) {
-        case "Idle":
+        case "idle":
           socket.emit("emoji","smile");
           break;
-        case "Installing":
-          socket.emit("emoji","busy");
-          break;
-        case "Downloading":
+        case "downloading":
           socket.emit("emoji","download");
-          break;
-        case "Starting":
-          socket.emit("emoji","fwd");
-          break;
-        case "Stopping":
-          socket.emit("emoji","stop");
           break;
       }
     });
@@ -42,5 +32,5 @@
     socket.emit('emoji', 'stop');
     process.exit(1);
   });
-  
+
 }
