@@ -37,11 +37,6 @@
               self.status = "idle";
               self.emit('status', "idle");
             }
-          } else if (self.filterServicesWithStatus(body[appname].services, "exited")) {
-            if (self.status != "stopping") {
-              self.status = "stopping";
-              self.emit('status', "stopping");
-            }
           }
         }
       });
