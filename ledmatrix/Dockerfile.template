@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:8-slim
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:8-run
 
 # Move to app dir
 RUN mkdir -p /usr/src/app/
@@ -23,8 +23,5 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # Move app to filesystem
 COPY ./app ./
 
-## Uncomment if you want systemd
-ENV INITSYSTEM on
-ENV UDEV=off
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]
