@@ -1,4 +1,6 @@
 version: '2'
+volumes:
+    resin-data:
 services:
   ledmatrix:
     build: ./ledmatrix
@@ -36,6 +38,8 @@ services:
       - ws
   mopidy:
     build: ./mopidy
+    volumes:
+      - 'resin-data:/data'
     restart: always
     network_mode: host
     privileged: true
