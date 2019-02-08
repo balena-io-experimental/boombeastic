@@ -1,5 +1,5 @@
 [Unit]
-Description=Resin.io User Application
+Description=Balena User Application
 
 [Service]
 EnvironmentFile=/etc/docker.env
