@@ -14,6 +14,11 @@ services:
       io.balena.features.kernel-modules: '1'
     depends_on:
       - ws
+  proxy:
+    build: ./proxy
+    restart: always
+    privileged: true
+    network_mode: host
   network:
     build: ./network
     restart: always
