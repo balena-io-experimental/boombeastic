@@ -50,6 +50,15 @@ services:
     privileged: true
     depends_on:
       - ws
+  file-manager:
+    build: ./file-manager
+    volumes:
+      - 'resin-data:/data'
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
   supervisor:
     build: ./supervisor
     restart: always
