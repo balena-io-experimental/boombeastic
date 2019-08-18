@@ -49,6 +49,6 @@
     "chalk": "~2.3.2",
     "debug": "~3.1.0",
     "shairport-sync-reader": "~0.0.7",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.2.0"
   }
 }
