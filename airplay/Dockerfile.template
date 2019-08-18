@@ -57,7 +57,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   libnss-mdns \
   libsoxr-dev \
   alsa-utils \
-  && git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1  --branch 3.2.2 \
+  && git clone https://github.com/mikebrady/shairport-sync.git shairport-sync --depth 1  --branch 3.3.1 \
   && cd shairport-sync && autoreconf -i -f \
   && ./configure --with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-systemd \
   && make install && cp ./scripts/shairport-sync.conf /usr/local/etc/shairport-sync.conf && cd ../ && rm -rf shairport-sync \
