@@ -14,6 +14,11 @@ services:
       io.balena.features.kernel-modules: '1'
     depends_on:
       - ws
+  proxy:
+    build: ./proxy
+    restart: always
+    privileged: true
+    network_mode: host
   network:
     build: ./network
     restart: always
@@ -38,6 +43,15 @@ services:
       - ws
   mopidy:
     build: ./mopidy
+    volumes:
+      - 'resin-data:/data'
+    restart: always
+    network_mode: host
+    privileged: true
+    depends_on:
+      - ws
+  file-manager:
+    build: ./file-manager
     volumes:
       - 'resin-data:/data'
     restart: always

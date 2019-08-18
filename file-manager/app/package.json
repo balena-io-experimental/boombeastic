@@ -1,0 +1,52 @@
+{
+  "name": "boombeastic-file-manager",
+  "version": "1.0.0",
+  "description": "A Raspberry Pi based smart fleet of connected speakers!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-playground/boombeastic.git"
+  },
+  "keywords": [
+    "balena",
+    "resin",
+    "io",
+    "boom",
+    "bastic",
+    "beastic",
+    "beast",
+    "box",
+    "speaker",
+    "audio",
+    "sound",
+    "dac",
+    "rpi",
+    "raspberry",
+    "zero",
+    "led",
+    "matrix",
+    "sync",
+    "multi",
+    "room"
+  ],
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/boombeastic/issues"
+  },
+  "homepage": "https://github.com/resin-io-playground/boombeastic#readme",
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "socket.io": "^2.2.0"
+  }
+}
