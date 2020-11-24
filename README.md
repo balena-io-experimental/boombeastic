@@ -36,6 +36,12 @@ Please refer to the [Wiki](https://github.com/balena-io-projects/boombeastic/wik
 * https://www.geek.com/tech/anyone-can-make-this-raspberry-pi-powered-speaker-1683679/
 * https://lifehacker.com/build-your-own-raspberry-pi-powered-smart-speaker-1790411587
 
+## Setup and configuration
+
+Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
+
+[![deploy button](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balenalabs/boombeastic&defaultDeviceType=raspberry-pi)
+
 ## License
 
 Copyright 2018 balena Ltd.
